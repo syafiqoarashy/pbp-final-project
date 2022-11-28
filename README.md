@@ -11,6 +11,7 @@ The mobile app that will be developed is a digital proceeding app for an academi
 
 ## LINK
 Github Release: https://github.com/syafiqoarashy/pbp-final-project/releases/tag/1.0.0%2B1
+
 APK Direct Download: https://github.com/syafiqoarashy/pbp-final-project/releases/download/1.0.0%2B1/app.apk
 
 ## LIST OF MODULES AND FEATURES
@@ -33,9 +34,21 @@ These features consist of:
 - Venue Map
     1. the Venue Map section will provide a full map of the Conference Event venue.
     1. This will be implemented in hopes that users that are participating in the venue will have a visual representation of what the venue might be.
+- Testimonials
+    1. Contains the testimonials that logged users created.
+    1. Non logged users will ONLY be able to view the testimonials, while logged user is capable of adding more to the testimonials.
 - Footer and Sponsors
     1. Located at the bottom of the page, this footer contains details regarding the Conference Event and its sponsors
 
+### LOGIN & REGISTER
+- Login
+    1. Contains the page that provides authentication for users to log in.
+    1. Provides an option to register an account if the user has not yet created an aaccount
+    1. Provides an option to go back to the home page
+    1. Will redirect them back to the home page (logged in version) if successfully logged in.
+- Register
+    1. Contains the page that provides authentication for users to register an account.
+    1. Will redirect them back to the login page if successfully created an account.
 
 ### EVENTS PAGE
 The events module keeps track of the rundown schedule. This means for each event, the start and end time is recorded as well as its program title, relevant speakers and location. The user is able to interact with certain events. For example, if the event is a parallel session, the user is able to access the parallel sessions page to find out more about said event. On the other hand, if it is a plenary session with a speaker, users are able to interact with the event and find further information on the speaker. The app will retrieve the event data from the web app and display them to the user.
@@ -119,7 +132,7 @@ flutter run
 Choose where to run the app (e.g. Windows browser, Chrome, etc.). If running on a browser, the app can be accessed through localhost.
 
 ### DEPLOY & RELEASE
-The app can be deployed through Microsoft Visual Studio App Center. 
+The app can be deployed through Github Releases. 
 
 
 
