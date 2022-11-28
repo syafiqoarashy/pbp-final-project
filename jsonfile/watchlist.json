@@ -1,0 +1,119 @@
+[
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":1,
+        "fields":{
+            "watched":"Yes",
+            "title":"The Lucky One",
+            "rating": 3.2,
+            "release_date": "20/04/2012",
+            "review": "Zac Efron always brings a stellar performance in every movie he does. This was the same exception. The plot of this movie makes you want to see it through till the end. It's a sort of cliff hanger up until the end the solution of the plot. But then there is another plot added to the movie in the second half of the film. The storytelling was super creative in this one and I enjoyed watching every second of it."
+        }
+},
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":2,
+        "fields":{
+            "watched":"Yes",
+            "title":"Me Before You",
+            "rating": 3.7,
+            "release_date": "27/08/2016",
+            "review": "Absolutely brilliant film. Those who criticise it for dealing with the subject of disabilty should look past the fact Will is disabled and look at the film in the light of what it aims to be, a touching, romance film. Emelia Clarke is great. Sam Claflin is brilliant. A definite must see film."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":3,
+        "fields":{
+            "watched":"Yes",
+            "title":"Knight and Day",
+            "rating": 3.2,
+            "release_date": "23/06/2010",
+            "review": "I was sort of influenced by the somewhat bad reviews I had read about this movie, but decided to watch it anyway, because both Tom Cruise and Cameron Diaz usually make good movies. So I sat down and watched it, and I am glad that I did."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":4,
+        "fields":{
+            "watched":"Yes",
+            "title":"Forever My Girl",
+            "rating": 3.3,
+            "release_date": "19/01/2018",
+            "review": "This movie would be fine if the guy hadnt left the girl at the altar at the beginning of the movie and then disappeared for 10 years. I have a hard time believeing that any woman who that happened to would just fall back in love with the guy without so much as an apology from him. She punched him once as payback and then they were back on good terms. It feels like most of the movie overlooked that unforgivable first scene and pretended it happened happened. All in all a nice story but felt really head-in-the clouds unrealistic. This girl should know her own worth!!"
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":5,
+        "fields":{
+            "watched":"Yes",
+            "title":"The Longest Ride",
+            "rating": 3.5,
+            "release_date": "10/04/2015",
+            "review": "I really thought The Longest Ride was going to be a sappy movie based on a book by Nicholas Sparks. I was mistaken. Yes, it can be sappy but turns out to be a good story. A young couple, a city girl and a cowboy go out on a date only to discover they are too different for it to work. They drive up to an accident scene and the cowboy saves the driver while the gal discovers a lot of letters. This sets a path to a past love story and sets the course for the cowboy and city girl to have a little faith in finding love even though circumstances may point elsewhere. I believe this is a good date movie or just a feel good story. Long live cowboys."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":6,
+        "fields":{
+            "watched":"Yes",
+            "title":"Interstellar",
+            "rating": 4.3,
+            "release_date": "06/11/2014",
+            "review": "After watching this insane movie in the theatres back in 2014 I swore to god I will wait 5 years to watch it again so I get to forget it and experince the insanity it has again This without doubt is THE BEST MOVIE EVER MADE."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":7,
+        "fields":{
+            "watched":"Yes",
+            "title":"Tenet",
+            "rating": 3.7,
+            "release_date": "10/02/2021",
+            "review": "Nobody listened. This was the result. Sure, we get it, when some viewers make that special effort to understand the mad genius of the film-maker. Makes them feel special. But here is a tip from a member with 1600+ reviews. Like Seinfeld once said, if you choose your detergent based on its ability to remove bloodstains, you have bigger problems than laundry. If you need to watch the film several times, preferably with subtitles (quoting from one of the top rated reviews here), you are not here for the movie. Or the bear hunting."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":8,
+        "fields":{
+            "watched":"Yes",
+            "title":"Mr. & Ms/ Smith",
+            "rating": 3.3,
+            "release_date": "09/06/2005",
+            "review": "It may be unfair to say, but its easily admitted that the most interesting ploy this film can rely on was the media storm surrounding THE affair that led to THE Hollywood couple to be Brangelina. As a matter of fact, the film is actually rather good and the playful yet genuine chemistry berween Pitt and Jolie excuses the ludicrous plot and reliance on marketing gimmicks. The film really isn't a serious one, but it is a sexy one."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":9,
+        "fields":{
+            "watched":"Yes",
+            "title":"Se7en",
+            "rating": 3.3,
+            "release_date": "22/09/1995",
+            "review": "If you have trouble with blood, gore and disturbing subject matter stay far away from this movie. But if you can handle that, watch this one. It's depressing and unpleasant but riveting."
+        }
+    },
+
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":10,
+        "fields":{
+            "watched":"Yes",
+            "title":"Ad Astra",
+            "rating": 3.3,
+            "release_date": "20/09/2019",
+            "review": "'Ad Astra' was a film I knew nothing about going in, and i'm glad I went in blind. It was visually gorgeous with nail biting set pieces, but the story hit me in just the right spot. It takes a good script for you to hear voice over in lieu of dialogue and not feel like you're being cheated, and this script was, in my mind, excellent. It's a vibe-y film that spends a lot of time in silence, and if you're like me you'll really appreciate the time it takes to develop the emotional and visual severity. On its surface it's a space epic, but in its heart it will speak to victims of depression, as well as anyone who's ever spent years feeling like they didn't belong. It takes a journey greater than most are wiling to take to find your deepest demons and confront them. Absolutely loved it."
+        }
+    }
+]
