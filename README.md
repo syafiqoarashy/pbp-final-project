@@ -134,5 +134,45 @@ Choose where to run the app (e.g. Windows browser, Chrome, etc.). If running on 
 ### DEPLOY & RELEASE
 The app can be deployed through Github Releases. 
 
+#### Basic Settings for Ratification of the Flutter Application
 
+For application publications on the App Center, the FLutter application must be signed or authorized using a key so that the released application has a guaranteed validity. Therefore, we will make a key for the application and set it up for automation so that the CI/CD script will run well.
+
+1. Make a keystore
+For Mac OS or Linux users, run the following command on the Terminal:
+“keytool -genkey -v -keystore ~/release-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias release”<br><br>
+For Windows users, run the following command on Command Prompt:
+“keytool -genkey -v -keystore %userprofile%\release-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias release”<br><br>
+This command is used to save the keystore file by the name release-keystore.jks in the home directory with an alias of release. Move the file inside the root folder application project and add the following syntax to the file .gitignore in the root folder project application so that the keystore is not counted as a file in the Git repository.
+
+2. Open file /android/app/build.gradle
+
+3. Look for parts buildTypes
+
+<img width="324" alt="image" src="https://user-images.githubusercontent.com/112454126/204335995-25b4ec13-ff59-4692-b101-1f44220d90fe.png">
+
+Change the section to the following.
+
+<img width="327" alt="image" src="https://user-images.githubusercontent.com/112454126/204336056-116e304b-2764-4c2f-8701-49cf8633b949.png">
+
+
+Until here, we have made basic arrangements for authorizing applications. Next, we will modify the GitHub Actions script ( making, if not ) and create new scripts for build on the App Center.
+
+
+#### Making GitHub Actions Scripts
+1. Produce a base64 string as a representation of the keystore file which we will save as an environment variable later.<br><br>
+Run the command openssl base64 -in release-keystore.jks on the root folder to produce base64 string. Tapi string for the time being ( for example, using Notepad or Visual Studio Code).
+
+2. Make repository secrets on the GitHub repository with the following specifications.<br><br>
+i. GH_TOKEN contains GitHub ( Personal Access) Token from one of the repository admins for automated release.<br><br>
+ii. KEY_JKS contains a base64 string from the keystore file that you made before.<br><br>
+iii. KEY_PASSWORD contains the password you used when you made the keystore file.
+
+3. Open (create, if there is no ) folder .github/workflows.
+
+4. Create three new files with the specifications in GitHub Gist.
+
+5. Save the file and push to the repository. Check whether the application was successfully created and released by GitHub Actions automatically.
+
+Until here, we have secured workflow on GitHub.
 
