@@ -10,8 +10,8 @@
 The mobile app that will be developed is a digital proceeding app for an academic conference, namely ACB-ISBE. The app will display information surrounding the conference, such as the schedule, submitted papers, events, speakers, authors, and room assignments. There are only two roles: members and non-members. Members includes participants, speakers, committee members, and anyone who is involved with the event. Once logged in, they will be given permission to view details regarding the event (such as the event rundown), while non-members will only be able to view the home page that contains limited information.
 
 ## LINK
-https://github.com/nafisazizir/pbp-final-project
-<link deployed>
+Github Release: https://github.com/syafiqoarashy/pbp-final-project/releases/tag/1.0.0%2B1
+APK Direct Download: https://github.com/syafiqoarashy/pbp-final-project/releases/download/1.0.0%2B1/app.apk
 
 ## LIST OF MODULES AND FEATURES
 ### HOME PAGE
