@@ -56,8 +56,8 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                   '${widget.title}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                      fontSize:20,
-                      fontWeight: FontWeight.w700,
+                    fontSize:20,
+                    fontWeight: FontWeight.w700,
                   )
               ),
             ),
@@ -100,37 +100,37 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                   borderRadius: BorderRadius.circular(12)
               ),
               child: Column(
-                  children: [
-                    Text(
-                        '${widget.location}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize:14,
-                        )
-                    ),
-                    Text(
-                        '${widget.date}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize:14,
-                        )
-                    ),
-                    Text(
-                        '${widget.time}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize:14,
-                        )
-                    ),
-                    Text(
-                        '${widget.chair}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize:14,
-                        )
-                    ),
-                  ],
-                ),
+                children: [
+                  Text(
+                      '${widget.location}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize:14,
+                      )
+                  ),
+                  Text(
+                      '${widget.date}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize:14,
+                      )
+                  ),
+                  Text(
+                      '${widget.time}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize:14,
+                      )
+                  ),
+                  Text(
+                      '${widget.chair}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize:14,
+                      )
+                  ),
+                ],
+              ),
             ),
             const Text(
                 'Abstract',
