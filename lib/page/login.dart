@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:acb_isbe/page/drawer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,11 +12,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-        appBar: AppBar(
-
-          title: const Text('Login'),
-        ),
-        drawer: displayDrawer.display(context),
       body: SafeArea(
         child:Center(
           child: Column(
@@ -140,7 +134,6 @@ class _LoginPageState extends State<LoginPage> {
 
               ]),
         )
-
       )
     );
   }

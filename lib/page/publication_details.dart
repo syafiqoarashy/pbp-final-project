@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:acb_isbe/page/bottom_navbar.dart';
 
 class PublicationDetailsPage extends StatefulWidget {
   PublicationDetailsPage ({Key? key,
@@ -162,7 +161,6 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
             ),
           ]
       ),
-      bottomNavigationBar: displayNavbar.display(context),
     );
   }
 
