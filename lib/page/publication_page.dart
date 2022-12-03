@@ -12,8 +12,17 @@ class PublicationPage extends StatefulWidget {
 }
 
 class _PublicationPageState extends State<PublicationPage> {
-  Future<List<Publication>> fetchToDo() async {
-    List<Publication> listPublication = [];
+  List<Publication> listPublication = [];
+  List<Publication> displayList = [];
+  List<Publication> titleList = [];
+  List<Publication> authorList = [];
+  List<Publication> trackList = [];
+  String searchKeyword = '';
+  String selectedTrack = 'Track';
+  List<String> listTracks = ['Track', 'SCE', 'IT', 'AME', 'BBE', 'CPE', 'SBCC', 'ECE', 'MME',  'IE', 'ISBE'];
+
+  Future<List<Publication>> fetchPublication(String value) async {
+    listPublication = [];
 
     final String response = await rootBundle.loadString('jsonfile/publication.json');
     final data = json.decode(response) as List<dynamic>;
@@ -23,8 +32,30 @@ class _PublicationPageState extends State<PublicationPage> {
         listPublication.add(Publication.fromJson(d["fields"]));
       }
     }
-    return listPublication;
+
+    searchKeyword = value;
+
+    setState(() {
+      if(selectedTrack == 'Track') {
+        titleList = listPublication.where((element) =>
+            element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+        authorList = listPublication.where((element) =>
+            element.authorsName!.toLowerCase().contains(value.toLowerCase())).toList();
+        displayList = titleList + authorList;
+      } else {
+        trackList = listPublication.where((element) =>
+            element.track!.toLowerCase().contains(selectedTrack.toLowerCase())).toList();
+        titleList = trackList.where((element) =>
+            element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+        authorList = trackList.where((element) =>
+            element.authorsName!.toLowerCase().contains(value.toLowerCase())).toList();
+        displayList = titleList + authorList;
+      }
+    });
+
+    return displayList;
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,94 +65,131 @@ class _PublicationPageState extends State<PublicationPage> {
         backgroundColor: Colors.deepPurple,
       ),
       body:
-      Container(
-        child: FutureBuilder(
-            future: fetchToDo(),
-            builder: (context, AsyncSnapshot snapshot) {
-              if (snapshot.data == null) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                if (!snapshot.hasData) {
-                  return Column(
-                    children: const [
-                      Text(
-                        "To do list is empty :(",
-                        style: TextStyle(
-                            color: Color(0xff59A5D8),
-                            fontSize: 20),
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            // SizedBox(height: 30),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      onChanged: (value) => fetchPublication(value),
+                      cursorColor: Colors.deepPurple,
+                      style: TextStyle(
+                        color: Colors.black,
                       ),
-                      SizedBox(height: 8),
-                    ],
-                  );
-                } else {
-                  return ListView.builder(
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (_, index)=> Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade300),
-                            borderRadius: BorderRadius.circular(12)
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey.shade200,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
                         ),
-                        child:Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ListTile(
-                              title: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment:  CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                      "${snapshot.data![index].title}",
-                                      style: const TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black
+                        hintText: 'Search for title, author(s)',
+                        prefixIcon: Icon(Icons.search, color: Colors.deepPurple,)
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  DropdownButton(
+                    value: selectedTrack,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items: listTracks.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedTrack = newValue!;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+            FutureBuilder(
+                future: fetchPublication(searchKeyword),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.data == null) {
+                    return const Center(child: CircularProgressIndicator(
+                      color: Colors.deepPurple,
+                    ));
+                  } else {
+                    return Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: displayList.map((data) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey.shade300),
+                                borderRadius: BorderRadius.circular(12)
+                            ),
+                            child:Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListTile(
+                                  title: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:  CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                          "${data.title}",
+                                          style: const TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black
+                                          )
+                                      ),
+                                      SizedBox(height: 10),
+                                      Text(
+                                        "${data.authorsName}",
+                                        style: const TextStyle(
+                                          fontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(height: 3),
+                                      Text(
+                                        "Track : ${data.track}",
+                                        style: const TextStyle(
+                                          fontSize: 12.0,
+                                        ),
                                       )
+                                    ],
                                   ),
-                                  SizedBox(height: 10),
-                                  Text(
-                                    "${snapshot.data![index].authorsName}",
-                                    style: const TextStyle(
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "Track : ${snapshot.data![index].track}",
-                                    style: const TextStyle(
-                                      fontSize: 12.0,
-                                    ),
-                                  )
-                                ],
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context)  => PublicationDetailsPage(
+                                            id: data.id,
+                                            trackId: data.trackId,
+                                            track: data.track,
+                                            title: data.title,
+                                            authorsName: data.authorsName,
+                                            submitted: data.submitted,
+                                            lastUpdated: data.lastUpdated,
+                                            keywords: data.keywords,
+                                            decision: data.decision,
+                                            reviewsSent: data.reviewsSent,
+                                            publicationAbstract: data.publicationAbstract,
+                                            location: data.location,
+                                            date: data.date,
+                                            time: data.time,
+                                            chair: data.chair
+                                        )
+                                        ));
+                                  }
                               ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context)  => PublicationDetailsPage(
-                                        id: snapshot.data![index].id,
-                                        trackId: snapshot.data![index].trackId,
-                                        track: snapshot.data![index].track,
-                                        title: snapshot.data![index].title,
-                                        authorsName: snapshot.data![index].authorsName,
-                                        submitted: snapshot.data![index].submitted,
-                                        lastUpdated: snapshot.data![index].lastUpdated,
-                                        keywords: snapshot.data![index].keywords,
-                                        decision: snapshot.data![index].decision,
-                                        reviewsSent: snapshot.data![index].reviewsSent,
-                                        publicationAbstract: snapshot.data![index].publicationAbstract,
-                                        location: snapshot.data![index].location,
-                                        date: snapshot.data![index].date,
-                                        time: snapshot.data![index].time,
-                                        chair: snapshot.data![index].chair
-                                    )
-                                    ));
-                              }
-                          ),
-                        ),
-                      )
-                  );
-                }
-              }
-            }
+                            ),
+                          );
+                        }).toList());
+                  }
+                }),
+          ],
         ),
       ),
     );
