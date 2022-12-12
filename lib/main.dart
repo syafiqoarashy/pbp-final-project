@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:acb_isbe/page/speakers.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -46,7 +47,7 @@ class _MainPageState extends State<MainPage> {
   final screens = [
     HomePage(),
     Center(child: Text('EVENTS')),
-    PublicationPage(track:'Track'),
+    PublicationPage(track: 'Track'),
     Center(child: Text('AUTHORS')),
     SessionsPage(),
     SpeakersPage(),
@@ -54,83 +55,85 @@ class _MainPageState extends State<MainPage> {
   ];
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold
+      (
 
-    body: screens[index],
-    bottomNavigationBar: NavigationBar(
-      backgroundColor: Colors.deepPurple,
-      selectedIndex: index,
-      onDestinationSelected: (index) =>
-          setState(() => this.index = index),
-      animationDuration: Duration(seconds: 1),
-      destinations: const [
-        NavigationDestination(
-            icon: Icon(
-                Icons.home_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.home,
-                color: Colors.white
-            ),
-            label: 'Home'),
-        NavigationDestination(
-            icon: Icon(
-                Icons.calendar_month_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.calendar_month_rounded,
-                color: Colors.white
-            ),
-            label: 'Events'),
-        NavigationDestination(
-            icon: Icon(
-                Icons.article_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.article_rounded,
-                color: Colors.white
-            ),
-            label: 'Publication'),
-        NavigationDestination(
-            icon: Icon(
-                Icons.edit_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.edit,
-                color: Colors.white
-            ),
-            label: 'Authors'),
-        NavigationDestination(
-            icon: Icon(
-                Icons.view_module_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.view_module_rounded,
-                color: Colors.white
-            ),
-            label: 'Sessions'),
-        NavigationDestination(
-        icon: Icon(Icons.people_alt_outlined, color: Colors.white),
-        selectedIcon:
-        Icon(Icons.people_alt_outlined, color: Colors.white),
-        label: 'Speakers'),
-        NavigationDestination(
-            icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.white
-            ),
-            selectedIcon: Icon(
-                Icons.account_circle_rounded,
-                color: Colors.white
-            ),
-            label: 'Profile'),
-      ],
-    ),
-  );
+      body: screens[index],
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.deepPurple,
+        selectedIndex: index,
+        onDestinationSelected: (index) =>
+            setState(() => this.index = index),
+        animationDuration: Duration(seconds: 1),
+        destinations: const [
+          NavigationDestination(
+              icon: Icon(
+                  Icons.home_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.home,
+                  color: Colors.white
+              ),
+              label: 'Home'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.calendar_month_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.calendar_month_rounded,
+                  color: Colors.white
+              ),
+              label: 'Events'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.article_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.article_rounded,
+                  color: Colors.white
+              ),
+              label: 'Publication'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.edit_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.edit,
+                  color: Colors.white
+              ),
+              label: 'Authors'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.view_module_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.view_module_rounded,
+                  color: Colors.white
+              ),
+              label: 'Sessions'),
+          NavigationDestination(
+              icon: Icon(Icons.people_alt_outlined, color: Colors.white),
+              selectedIcon:
+              Icon(Icons.people_alt_outlined, color: Colors.white),
+              label: 'Speakers'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.account_circle_rounded,
+                  color: Colors.white
+              ),
+              label: 'Profile'),
+        ],
+      ),
+    );
+  }
 }
-
