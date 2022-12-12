@@ -15,7 +15,7 @@ GitHub Release: https://github.com/syafiqoarashy/pbp-final-project/releases/tag/
 APK Direct Download: https://github.com/syafiqoarashy/pbp-final-project/releases/download/1.0.0%2B1/app.apk
 
 ## LIST OF MODULES AND FEATURES
-### HOME PAGE
+### HOME PAGE - Syafiqo Arashy Octaviano
 The website will have a home page. The home page will be the first thing the user will see when they open the app. It should contain enough information and features to get them familiar with the website.
 These features consist of:
 - Drawer
@@ -40,7 +40,7 @@ These features consist of:
 - Footer and Sponsors
     1. Located at the bottom of the page, this footer contains details regarding the Conference Event and its sponsors
 
-### LOGIN & REGISTER
+### LOGIN & REGISTER - Syafiqo Arashy Octaviano
 - Login
     1. Contains the page that provides authentication for users to log in.
     1. Provides an option to register an account if the user has not yet created an aaccount
@@ -50,14 +50,14 @@ These features consist of:
     1. Contains the page that provides authentication for users to register an account.
     1. Will redirect them back to the login page if successfully created an account.
 
-### EVENTS PAGE
+### EVENTS PAGE - Theirry Nicole Panggabean
 The events module keeps track of the rundown schedule. This means for each event, the start and end time is recorded as well as its program title, relevant speakers and location. The user is able to interact with certain events. For example, if the event is a parallel session, the user is able to access the parallel sessions page to find out more about said event. On the other hand, if it is a plenary session with a speaker, users are able to interact with the event and find further information on the speaker. The app will retrieve the event data from the web app and display them to the user.
 - When interacting with a parallel session, it should lead them to the tracks / parallel sessions page.
 - When interacting with a session that has a speaker, it should lead them to the respective speaker.
 To conclude, the events module will have its own page where the rundowns are filtered as required by the users, but it will also have interactivity that will lead to sessions and speakers.
 
 
-### SPEAKERS
+### SPEAKERS - Azra batrisyia Hisman
 The speakers module will display a list/cards of speakers for the events. Speakers would initially be divided into Plenary Speakers and Keynote Speakers. The module will also display a picture of the speaker, each speakers’ respective universities, and also country of origin. From each lists/cards, we can go to a more detailed page where each speakers’ session details are also displayed. Data displayed would include:
 
 1. Speakers Profile:
@@ -74,7 +74,7 @@ The speakers module will display a list/cards of speakers for the events. Speake
 From this module, users would be able to gather information regarding each speaker.
 
 
-### SESSIONS
+### SESSIONS - Matthew Rizky Hartadi
 In the sessions module, the page will display information about the topics that will be in session in the event. In each of these topics, there will be all the submitted papers related to that topic grouped based on their date of presentation. Each paper contains information about the author, presentation time and also the abstract of the paper.
 
 The data that would be displayed in:
@@ -89,7 +89,7 @@ The data that would be displayed in:
     - Abstract of Paper
 
 
-### AUTHORS
+### AUTHORS - Ammar Ash Shiddiq
 In the Authors modules, the page will display the authors name and also a search bar. When the user click on one of the data displayed, they will directed to a page displaying the details of the authors which are:
 - Full Name
 - Profile Picture
@@ -100,7 +100,7 @@ In the Authors modules, the page will display the authors name and also a search
 - Submission Title
 The user also able to click the submission title and will be redirected to submission page in publication
 
-PUBLICATION
+## PUBLICATION - Nafis Azizi Riza
 In the publication modules, the web will display the submitted papers by the authors. The data that will be displayed are title, tracks, and the author's name. User can click to each of the data, and redirected to the details page of each paper that will be displayed:
 - Tracks : which category does the paper include (such as, SCE for Sustainable and Clean Energy, and etc.)
 - Submission Title

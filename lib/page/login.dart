@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,8 +10,33 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _loginFormKey = GlobalKey<FormState>();
+  bool isPasswordVisible = false;
+  void togglePasswordView() {
+    setState(() {
+      isPasswordVisible = !isPasswordVisible;
+    });
+  }
+
+  String username = "";
+  String password1 = "";
+
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
+    // void logIn() async {
+    //   final response = await request.login("<DJANGO URL>/auth/login", {
+    //     'username': username,
+    //     'password': password1,
+    //   });
+    //   if (request.loggedIn) {
+    //     Navigator.push(context, route)
+    //   } else {
+    //     // Code here will run if the login failed (wrong username/password).
+    //   }
+    // }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(

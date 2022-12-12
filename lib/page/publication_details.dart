@@ -161,7 +161,7 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                       ),
                       SizedBox(height: 10),
                       Text(
-                          '${widget.location}',
+                          'Location: ${widget.location}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize:14,
@@ -169,7 +169,7 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                           )
                       ),
                       Text(
-                          '${widget.date}',
+                          'Date: ${widget.date}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize:14,
@@ -177,7 +177,7 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                           )
                       ),
                       Text(
-                          '${widget.time}',
+                          'Time: ${widget.time}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize:14,
@@ -185,7 +185,7 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                           )
                       ),
                       Text(
-                          '${widget.chair}',
+                          'Chair: ${widget.chair}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize:14,

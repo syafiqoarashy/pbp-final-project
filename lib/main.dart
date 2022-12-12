@@ -3,22 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
-import 'package:acb_isbe/page/home.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ACB-ISBE',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'ACB-ISBE',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MainPage(),
+        routes: {
+          "/login": (BuildContext context) => const LoginPage(),
+        },
       ),
-      home: MainPage(),
     );
   }
 }
