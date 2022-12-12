@@ -1,22 +1,36 @@
+import 'package:acb_isbe/page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
+import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
 import 'package:acb_isbe/page/authors_page.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ACB-ISBE',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'ACB-ISBE',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MainPage(),
+        routes: {
+          "/login": (BuildContext context) => const LoginPage(),
+        },
       ),
-      home: MainPage(),
     );
   }
 }
@@ -29,15 +43,17 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int index = 0;
   final screens = [
-    Center(child: Text('HOME')),
+    HomePage(),
     Center(child: Text('EVENTS')),
-    PublicationPage(),
-    MyAuthorsPage(),
+    PublicationPage(track:'Track'),
+    Center(child: Text('AUTHORS')),
+    SessionsPage(),
     LoginPage(),
   ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
+
     body: screens[index],
     bottomNavigationBar: NavigationBar(
       backgroundColor: Colors.deepPurple,
@@ -86,6 +102,16 @@ class _MainPageState extends State<MainPage> {
                 color: Colors.white
             ),
             label: 'Authors'),
+        NavigationDestination(
+            icon: Icon(
+                Icons.view_module_outlined,
+                color: Colors.white
+            ),
+            selectedIcon: Icon(
+                Icons.view_module_rounded,
+                color: Colors.white
+            ),
+            label: 'Sessions'),
         NavigationDestination(
             icon: Icon(
                 Icons.account_circle_outlined,
