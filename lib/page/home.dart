@@ -116,7 +116,45 @@ class Contents extends StatelessWidget {
             style: TextStyle(color: Colors.white)) ,
           ),
         ) :
-        Text("OTW!");
+
+    Container(
+      padding: const EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
+      child: Container(
+        padding: const EdgeInsets.only(top: 25, left: 20, right: 20, bottom: 25),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.1, 0.5],
+            colors: [
+              Color(0xff886ff2),
+              Color(0xff6849ef),
+            ],
+          ),
+        ),
+         child: Column(
+      children: [
+        SizedBox(height: 40),
+        Image.asset('graphics/aws.png', scale: 6),
+        SizedBox(height: 20),
+        Image.asset('graphics/gojek.png', scale: 6),
+        SizedBox(height: 20),
+        Image.asset('graphics/kemendikbud.png', scale: 8),
+        SizedBox(height: 20),
+        Image.asset('graphics/ui.png', scale: 8),
+        SizedBox(height: 40),
+      ],
+      ),
+    ));
+
+
+
   }
 
 
