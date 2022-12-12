@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/main.dart';
+import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:acb_isbe/page/home.dart';
+import 'package:acb_isbe/page/cookie_request.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -17,6 +19,7 @@ class _MyFormPageState extends State<MyFormPage> {
   String _institute = "";
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       body: Form(
         key: _formKey,
@@ -176,7 +179,7 @@ class _MyFormPageState extends State<MyFormPage> {
     context,
     MaterialPageRoute(
     builder: (context) =>
-    const DiaryHomePage()),
+    const HomePage()),
     );
     },
     child: const Text(
@@ -195,9 +198,10 @@ class _MyFormPageState extends State<MyFormPage> {
               ],
             ),
           )
-        )
+        ]
+    )
       ),
-    );
+    )));
   }
 
 }
