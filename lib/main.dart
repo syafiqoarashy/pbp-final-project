@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/login.dart';
+import 'package:acb_isbe/page/authors_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class _MainPageState extends State<MainPage> {
     Center(child: Text('HOME')),
     Center(child: Text('EVENTS')),
     PublicationPage(),
-    Center(child: Text('AUTHORS')),
+    MyAuthorsPage(),
     LoginPage(),
   ];
 

@@ -74,8 +74,7 @@ class _PublicationPageState extends State<PublicationPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: 300,
+                  Expanded(
                     child: TextField(
                       onChanged: (value) => fetchPublication(value),
                       cursorColor: Colors.deepPurple,
