@@ -6,7 +6,7 @@ import 'dart:convert';
 
 EventsGeneral eventsGeneralFromJson(String str) => EventsGeneral.fromJson(json.decode(str));
 
-String eventsGeneralToJson(EventsGeneral data) => json.encode(data.toJson());
+String eventsGeneralToJson(List<EventsGeneral> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class EventsGeneral {
   EventsGeneral({
@@ -27,7 +27,7 @@ class EventsGeneral {
   String program;
   String? speaker;
   String place;
-  bool isParallel;
+  String isParallel;
 
   factory EventsGeneral.fromJson(Map<String, dynamic> json) => EventsGeneral(
     id: json["id"],

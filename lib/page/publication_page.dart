@@ -5,7 +5,9 @@ import 'package:acb_isbe/model/publication_model.dart';
 import 'package:flutter/services.dart';
 
 class PublicationPage extends StatefulWidget {
-  const PublicationPage({Key? key}) : super(key: key);
+  PublicationPage({Key? key, this.track}) : super(key: key);
+
+  String? track;
 
   @override
   State<PublicationPage> createState() => _PublicationPageState();
@@ -18,25 +20,33 @@ class _PublicationPageState extends State<PublicationPage> {
   List<Publication> authorList = [];
   List<Publication> trackList = [];
   String searchKeyword = '';
-  String selectedTrack = 'Track';
+  String? selectedTrack = 'Track';
   List<String> listTracks = ['Track', 'SCE', 'IT', 'AME', 'BBE', 'CPE', 'SBCC', 'ECE', 'MME',  'IE', 'ISBE'];
+  String? test = null;
 
   Future<List<Publication>> fetchPublication(String value) async {
-    listPublication = [];
+    // listPublication = [];
 
     final String response = await rootBundle.loadString('jsonfile/publication.json');
     final data = json.decode(response) as List<dynamic>;
 
-    for (var d in data) {
-      if (d != null) {
-        listPublication.add(Publication.fromJson(d["fields"]));
+    if (listPublication.isEmpty){
+      for (var d in data) {
+        if (d != null) {
+          listPublication.add(Publication.fromJson(d["fields"]));
+        }
       }
     }
 
-    searchKeyword = value;
+    test = '${widget.track}';
 
     setState(() {
       if(selectedTrack == 'Track') {
+        if (test == 'null') {
+          selectedTrack = 'Track';
+        } else {
+          selectedTrack = test;
+        }
         titleList = listPublication.where((element) =>
             element.title!.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = listPublication.where((element) =>
@@ -44,7 +54,7 @@ class _PublicationPageState extends State<PublicationPage> {
         displayList = titleList + authorList;
       } else {
         trackList = listPublication.where((element) =>
-            element.track!.toLowerCase().contains(selectedTrack.toLowerCase())).toList();
+            element.track!.toLowerCase().contains(selectedTrack!.toLowerCase())).toList();
         titleList = trackList.where((element) =>
             element.title!.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = trackList.where((element) =>
@@ -55,7 +65,6 @@ class _PublicationPageState extends State<PublicationPage> {
 
     return displayList;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +83,8 @@ class _PublicationPageState extends State<PublicationPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: 300,
+                  Expanded(
+                    // width: 300,
                     child: TextField(
                       onChanged: (value) => fetchPublication(value),
                       cursorColor: Colors.deepPurple,
@@ -95,20 +104,32 @@ class _PublicationPageState extends State<PublicationPage> {
                     ),
                   ),
                   SizedBox(width: 20),
-                  DropdownButton(
-                    value: selectedTrack,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: listTracks.map((String items) {
-                      return DropdownMenuItem(
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedTrack = newValue!;
-                      });
-                    },
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 7, vertical: 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      border: Border.all(
+                          color: Colors.deepPurple,
+                          width: 1.5
+                      )
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        value: selectedTrack,
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        items: listTracks.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedTrack = newValue!;
+                          });
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -145,6 +166,14 @@ class _PublicationPageState extends State<PublicationPage> {
                                               color: Colors.black
                                           )
                                       ),
+                                      SizedBox(height: 3),
+                                      Text(
+                                          "Last Updated: ${data.lastUpdated}",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.grey.shade600
+                                          )
+                                      ),
                                       SizedBox(height: 10),
                                       Text(
                                         "${data.authorsName}",
@@ -152,13 +181,30 @@ class _PublicationPageState extends State<PublicationPage> {
                                           fontSize: 12.0,
                                         ),
                                       ),
-                                      SizedBox(height: 3),
                                       Text(
-                                        "Track : ${data.track}",
-                                        style: const TextStyle(
+                                        "Keywords: ${data.keywords}",
+                                        style: TextStyle(
                                           fontSize: 12.0,
+                                          fontStyle: FontStyle.italic,
+                                          color: Colors.grey.shade600
                                         ),
-                                      )
+                                      ),
+                                      SizedBox(height: 10),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(vertical: 3.0, horizontal: 15.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade300,
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                        child: Text(
+                                          "${data.track}",
+                                          style: TextStyle(
+                                            fontSize: 12.0,
+                                            color: Colors.grey.shade800,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   onTap: () {

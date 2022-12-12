@@ -1,0 +1,82 @@
+[
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 1,
+    "fields": {
+      "symposium": "SCE",
+      "title": "Sustainable and Clean Energy"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 2,
+    "fields": {
+      "symposium": "IT",
+      "title": "Infrastructure and Transport"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 3,
+    "fields": {
+      "symposium": "AME",
+      "title": "Advances in Mechanical Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 4,
+    "fields": {
+      "symposium": "BBE",
+      "title": "Biotechnology and Bioprocess Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 5,
+    "fields": {
+      "symposium": "CPE",
+      "title": "Chemical Process and Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 6,
+    "fields": {
+      "symposium": "SBCC",
+      "title": "Sustainable Building, City, and Community"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 7,
+    "fields": {
+      "symposium": "ECE",
+      "title": "Electrical and Computer Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 8,
+    "fields": {
+      "symposium": "MME",
+      "title": "Metallurgy and Materials Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 9,
+    "fields": {
+      "symposium": "IE",
+      "title": "Industrial Engineering"
+    }
+  },
+  {
+    "model": "parallel_sessions.tracks",
+    "pk": 10,
+    "fields": {
+      "symposium": "ISBE",
+      "title": "Biomedical Engineering"
+    }
+  }
+]
