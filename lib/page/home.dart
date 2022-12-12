@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:ffi';
-
+import 'package:http/http.dart' as http;
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/main.dart';
@@ -20,11 +20,21 @@ class Contents extends StatelessWidget {
   Contents({Key? key, required this.num}) : super(key: key);
   List<Testimonials> listTestimonials = [];
   Future<List<Testimonials>> fetchTestimonials() async {
+    var url =
+    Uri.parse('https://acbisbe.up.railway.app/json/');
+    var response = await http.get(
+      url,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    );
     listTestimonials = [];
 
-    final String response = await rootBundle.loadString('jsonfile/testimonials.json');
-    final data = json.decode(response) as List<dynamic>;
+    // final String response = await rootBundle.loadString('jsonfile/testimonials.json');
+    // final data = json.decode(response) as List<dynamic>;
 
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
     for (var d in data) {
       if (d != null) {
         listTestimonials.add(Testimonials.fromJson(d["fields"]));
@@ -45,7 +55,8 @@ class Contents extends StatelessWidget {
           } else {
             return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: listTestimonials.map((data) {
+                children:
+                listTestimonials.map((data) {
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                     decoration: BoxDecoration(
