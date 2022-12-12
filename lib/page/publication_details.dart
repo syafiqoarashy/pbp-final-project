@@ -196,12 +196,12 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
               ),
               SizedBox(height: 10),
               const Text(
-                  'Abstract',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize:20,
-                    fontWeight: FontWeight.w700,
-                  ),
+                'Abstract',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize:20,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               SizedBox(height: 5),
               Text(

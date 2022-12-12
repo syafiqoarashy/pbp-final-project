@@ -1,0 +1,240 @@
+[
+    {
+      "model": "events.eventsparallel",
+      "pk": 1,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "2",
+        "speaker": "9",
+        "place": "OMBILIN 1"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 2,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "3",
+        "speaker": "6",
+        "place": "ANAI 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 3,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "4",
+        "place": "SEMPUR, SINAMAR"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 4,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "5",
+        "speaker": "5",
+        "place": "OMBILIN 2-3"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 5,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "6",
+        "speaker": "8",
+        "place": "KUANTAN 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 6,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "7",
+        "speaker": "7",
+        "place": "ARAI"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 7,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "8",
+        "speaker": "3",
+        "place": "TARUSAN 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 8,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "9",
+        "place": "KUANTAN 3"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 9,
+      "fields": {
+        "eventId": "13",
+        "date": "2019-07-23",
+        "startTime": "13:00",
+        "endTime": "18:00",
+        "program": "10",
+        "speaker": "13",
+        "place": "SEMPUR, SINAMAR"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 10,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "1",
+        "place": "OMBILIN 1"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 11,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "10:15",
+        "endTime": "12:00",
+        "program": "2",
+        "speaker": "10",
+        "place": "KUANTAN 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 12,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "3",
+        "place": "ANAI 1-2, KUANTAN 3"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 13,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "4",
+        "place": "SEMPUR"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 14,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "5",
+        "place": "OMBILIN 2-3"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 15,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "6",
+        "speaker": "10",
+        "place": "KUANTAN 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 16,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "7",
+        "place": "ARAI"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 17,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "8",
+        "place": "TARUSAN 1-2"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 18,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "14:00",
+        "program": "9",
+        "place": "KUANTAN 3"
+      }
+    },
+    {
+      "model": "events.eventsparallel",
+      "pk": 19,
+      "fields": {
+        "eventId": "16",
+        "date": "2019-07-24",
+        "startTime": "8:00",
+        "endTime": "18:00",
+        "program": "10",
+        "speaker": "12",
+        "place": "SEMPUR, SINAMAR, BATANDANG"
+      }
+    }
+  ]

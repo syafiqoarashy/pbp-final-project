@@ -120,14 +120,14 @@ class _PublicationPageState extends State<PublicationPage> {
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey.shade200,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                        hintText: 'Search for title, author(s)',
-                        prefixIcon: Icon(Icons.search, color: Colors.deepPurple,)
+                          filled: true,
+                          fillColor: Colors.grey.shade200,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none,
+                          ),
+                          hintText: 'Search for title, author(s)',
+                          prefixIcon: Icon(Icons.search, color: Colors.deepPurple,)
                       ),
                     ),
                   ),
@@ -135,11 +135,11 @@ class _PublicationPageState extends State<PublicationPage> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 7, vertical: 0),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      border: Border.all(
-                          color: Colors.deepPurple,
-                          width: 1.5
-                      )
+                        borderRadius: BorderRadius.circular(7),
+                        border: Border.all(
+                            color: Colors.deepPurple,
+                            width: 1.5
+                        )
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
@@ -212,9 +212,9 @@ class _PublicationPageState extends State<PublicationPage> {
                                       Text(
                                         "Keywords: ${data.keywords}",
                                         style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontStyle: FontStyle.italic,
-                                          color: Colors.grey.shade600
+                                            fontSize: 12.0,
+                                            fontStyle: FontStyle.italic,
+                                            color: Colors.grey.shade600
                                         ),
                                       ),
                                       SizedBox(height: 10),
@@ -227,9 +227,9 @@ class _PublicationPageState extends State<PublicationPage> {
                                         child: Text(
                                           "${data.track}",
                                           style: TextStyle(
-                                            fontSize: 12.0,
-                                            color: Colors.grey.shade800,
-                                            fontWeight: FontWeight.bold
+                                              fontSize: 12.0,
+                                              color: Colors.grey.shade800,
+                                              fontWeight: FontWeight.bold
                                           ),
                                         ),
                                       ),
