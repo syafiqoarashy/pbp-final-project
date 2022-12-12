@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 
 class PublicationDetailsPage extends StatefulWidget {
-  PublicationDetailsPage(
-      {Key? key,
-      required this.id,
-      required this.trackId,
-      required this.track,
-      required this.title,
-      required this.authorsName,
-      this.submitted,
-      this.lastUpdated,
-      required this.keywords,
-      this.decision,
-      this.reviewsSent,
-      required this.publicationAbstract,
-      required this.location,
-      required this.date,
-      required this.time,
-      required this.chair})
-      : super(key: key);
+  PublicationDetailsPage ({Key? key,
+    required this.id,
+    required this.trackId,
+    required this.track,
+    required this.title,
+    required this.authorsName,
+    this.submitted,
+    this.lastUpdated,
+    required this.keywords,
+    this.decision,
+    this.reviewsSent,
+    required this.publicationAbstract,
+    required this.location,
+    required this.date,
+    required this.time,
+    required this.chair}) : super(key: key);
 
   String id;
   String trackId;
@@ -94,7 +92,6 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
       ),
-<<<<<<< HEAD
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: ListView(
@@ -201,12 +198,12 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
               ),
               SizedBox(height: 10),
               const Text(
-                  'Abstract',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize:20,
-                    fontWeight: FontWeight.w700,
-                  ),
+                'Abstract',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize:20,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               SizedBox(height: 5),
               Text(
@@ -236,94 +233,8 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
             ]
         ),
       ),
-=======
-      body: ListView(children: [
-        // Title
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
-          child: Text('${widget.title}',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-              )),
-        ),
-
-        // Track
-        Text('${widget.track}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-
-        // Submission Date
-        Text('Submitted on ${widget.submitted}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-        Text('${widget.authorsName}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-        Text('${widget.decision}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.grey[200],
-              border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(12)),
-          child: Column(
-            children: [
-              Text('${widget.location}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  )),
-              Text('${widget.date}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  )),
-              Text('${widget.time}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  )),
-              Text('${widget.chair}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  )),
-            ],
-          ),
-        ),
-        const Text('Abstract',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-            )),
-        Text('${widget.publicationAbstract}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-        const Text('Keywords',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-            )),
-        Text('${widget.keywords}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-            )),
-      ]),
->>>>>>> 55e11aa (integrated speakers module)
     );
   }
+
+
 }

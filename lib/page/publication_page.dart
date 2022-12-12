@@ -20,32 +20,14 @@ class _PublicationPageState extends State<PublicationPage> {
   List<Publication> authorList = [];
   List<Publication> trackList = [];
   String searchKeyword = '';
-<<<<<<< HEAD
   String? selectedTrack = 'Track';
   List<String> listTracks = ['Track', 'SCE', 'IT', 'AME', 'BBE', 'CPE', 'SBCC', 'ECE', 'MME',  'IE', 'ISBE'];
   String? test = null;
-=======
-  String selectedTrack = 'Track';
-  List<String> listTracks = [
-    'Track',
-    'SCE',
-    'IT',
-    'AME',
-    'BBE',
-    'CPE',
-    'SBCC',
-    'ECE',
-    'MME',
-    'IE',
-    'ISBE'
-  ];
->>>>>>> 55e11aa (integrated speakers module)
 
   Future<List<Publication>> fetchPublication(String value) async {
     // listPublication = [];
 
-    final String response =
-        await rootBundle.loadString('jsonfile/publication.json');
+    final String response = await rootBundle.loadString('jsonfile/publication.json');
     final data = json.decode(response) as List<dynamic>;
 
     if (listPublication.isEmpty){
@@ -59,7 +41,6 @@ class _PublicationPageState extends State<PublicationPage> {
     test = '${widget.track}';
 
     setState(() {
-<<<<<<< HEAD
       if(selectedTrack == 'Track') {
         if (test == 'null') {
           selectedTrack = 'Track';
@@ -78,34 +59,6 @@ class _PublicationPageState extends State<PublicationPage> {
             element.title!.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = trackList.where((element) =>
             element.authorsName!.toLowerCase().contains(value.toLowerCase())).toList();
-=======
-      if (selectedTrack == 'Track') {
-        titleList = listPublication
-            .where((element) =>
-                element.title!.toLowerCase().contains(value.toLowerCase()))
-            .toList();
-        authorList = listPublication
-            .where((element) => element.authorsName!
-                .toLowerCase()
-                .contains(value.toLowerCase()))
-            .toList();
-        displayList = titleList + authorList;
-      } else {
-        trackList = listPublication
-            .where((element) => element.track!
-                .toLowerCase()
-                .contains(selectedTrack.toLowerCase()))
-            .toList();
-        titleList = trackList
-            .where((element) =>
-                element.title!.toLowerCase().contains(value.toLowerCase()))
-            .toList();
-        authorList = trackList
-            .where((element) => element.authorsName!
-                .toLowerCase()
-                .contains(value.toLowerCase()))
-            .toList();
->>>>>>> 55e11aa (integrated speakers module)
         displayList = titleList + authorList;
       }
     });
@@ -120,7 +73,8 @@ class _PublicationPageState extends State<PublicationPage> {
         title: const Text('Publication'),
         backgroundColor: Colors.deepPurple,
       ),
-      body: SingleChildScrollView(
+      body:
+      SingleChildScrollView(
         child: Column(
           children: [
             // SizedBox(height: 30),
@@ -145,21 +99,19 @@ class _PublicationPageState extends State<PublicationPage> {
                             borderSide: BorderSide.none,
                           ),
                           hintText: 'Search for title, author(s)',
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.deepPurple,
-                          )),
+                          prefixIcon: Icon(Icons.search, color: Colors.deepPurple,)
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 7, vertical: 0),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      border: Border.all(
-                          color: Colors.deepPurple,
-                          width: 1.5
-                      )
+                        borderRadius: BorderRadius.circular(7),
+                        border: Border.all(
+                            color: Colors.deepPurple,
+                            width: 1.5
+                        )
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
@@ -186,8 +138,7 @@ class _PublicationPageState extends State<PublicationPage> {
                 future: fetchPublication(searchKeyword),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.data == null) {
-                    return const Center(
-                        child: CircularProgressIndicator(
+                    return const Center(child: CircularProgressIndicator(
                       color: Colors.deepPurple,
                     ));
                   } else {
@@ -195,24 +146,23 @@ class _PublicationPageState extends State<PublicationPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: displayList.map((data) {
                           return Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
+                            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey.shade300),
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Padding(
+                                borderRadius: BorderRadius.circular(12)
+                            ),
+                            child:Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: ListTile(
                                   title: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment:  CrossAxisAlignment.start,
                                     children: [
-                                      Text("${data.title}",
+                                      Text(
+                                          "${data.title}",
                                           style: const TextStyle(
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.bold,
-<<<<<<< HEAD
                                               color: Colors.black
                                           )
                                       ),
@@ -224,9 +174,6 @@ class _PublicationPageState extends State<PublicationPage> {
                                               color: Colors.grey.shade600
                                           )
                                       ),
-=======
-                                              color: Colors.black)),
->>>>>>> 55e11aa (integrated speakers module)
                                       SizedBox(height: 10),
                                       Text(
                                         "${data.authorsName}",
@@ -237,9 +184,9 @@ class _PublicationPageState extends State<PublicationPage> {
                                       Text(
                                         "Keywords: ${data.keywords}",
                                         style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontStyle: FontStyle.italic,
-                                          color: Colors.grey.shade600
+                                            fontSize: 12.0,
+                                            fontStyle: FontStyle.italic,
+                                            color: Colors.grey.shade600
                                         ),
                                       ),
                                       SizedBox(height: 10),
@@ -252,9 +199,9 @@ class _PublicationPageState extends State<PublicationPage> {
                                         child: Text(
                                           "${data.track}",
                                           style: TextStyle(
-                                            fontSize: 12.0,
-                                            color: Colors.grey.shade800,
-                                            fontWeight: FontWeight.bold
+                                              fontSize: 12.0,
+                                              color: Colors.grey.shade800,
+                                              fontWeight: FontWeight.bold
                                           ),
                                         ),
                                       ),
@@ -263,29 +210,26 @@ class _PublicationPageState extends State<PublicationPage> {
                                   onTap: () {
                                     Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                PublicationDetailsPage(
-                                                    id: data.id,
-                                                    trackId: data.trackId,
-                                                    track: data.track,
-                                                    title: data.title,
-                                                    authorsName:
-                                                        data.authorsName,
-                                                    submitted: data.submitted,
-                                                    lastUpdated:
-                                                        data.lastUpdated,
-                                                    keywords: data.keywords,
-                                                    decision: data.decision,
-                                                    reviewsSent:
-                                                        data.reviewsSent,
-                                                    publicationAbstract: data
-                                                        .publicationAbstract,
-                                                    location: data.location,
-                                                    date: data.date,
-                                                    time: data.time,
-                                                    chair: data.chair)));
-                                  }),
+                                        MaterialPageRoute(builder: (context)  => PublicationDetailsPage(
+                                            id: data.id,
+                                            trackId: data.trackId,
+                                            track: data.track,
+                                            title: data.title,
+                                            authorsName: data.authorsName,
+                                            submitted: data.submitted,
+                                            lastUpdated: data.lastUpdated,
+                                            keywords: data.keywords,
+                                            decision: data.decision,
+                                            reviewsSent: data.reviewsSent,
+                                            publicationAbstract: data.publicationAbstract,
+                                            location: data.location,
+                                            date: data.date,
+                                            time: data.time,
+                                            chair: data.chair
+                                        )
+                                        ));
+                                  }
+                              ),
                             ),
                           );
                         }).toList());
