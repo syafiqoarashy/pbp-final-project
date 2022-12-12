@@ -5,7 +5,9 @@ import 'package:acb_isbe/model/publication_model.dart';
 import 'package:flutter/services.dart';
 
 class PublicationPage extends StatefulWidget {
-  const PublicationPage({Key? key}) : super(key: key);
+  PublicationPage({Key? key, this.track}) : super(key: key);
+
+  String? track;
 
   @override
   State<PublicationPage> createState() => _PublicationPageState();
@@ -18,8 +20,9 @@ class _PublicationPageState extends State<PublicationPage> {
   List<Publication> authorList = [];
   List<Publication> trackList = [];
   String searchKeyword = '';
-  String selectedTrack = 'Track';
+  String? selectedTrack = 'Track';
   List<String> listTracks = ['Track', 'SCE', 'IT', 'AME', 'BBE', 'CPE', 'SBCC', 'ECE', 'MME',  'IE', 'ISBE'];
+  String? test = null;
 
   Future<List<Publication>> fetchPublication(String value) async {
     listPublication = [];
@@ -33,10 +36,15 @@ class _PublicationPageState extends State<PublicationPage> {
       }
     }
 
-    searchKeyword = value;
+    test = '${widget.track}';
 
     setState(() {
       if(selectedTrack == 'Track') {
+        if (test == 'null') {
+          selectedTrack = 'Track';
+        } else {
+          selectedTrack = test;
+        }
         titleList = listPublication.where((element) =>
             element.title!.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = listPublication.where((element) =>
@@ -44,7 +52,7 @@ class _PublicationPageState extends State<PublicationPage> {
         displayList = titleList + authorList;
       } else {
         trackList = listPublication.where((element) =>
-            element.track!.toLowerCase().contains(selectedTrack.toLowerCase())).toList();
+            element.track!.toLowerCase().contains(selectedTrack!.toLowerCase())).toList();
         titleList = trackList.where((element) =>
             element.title!.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = trackList.where((element) =>
@@ -55,7 +63,6 @@ class _PublicationPageState extends State<PublicationPage> {
 
     return displayList;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +82,7 @@ class _PublicationPageState extends State<PublicationPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 300,
+                    width: 250,
                     child: TextField(
                       onChanged: (value) => fetchPublication(value),
                       cursorColor: Colors.deepPurple,
