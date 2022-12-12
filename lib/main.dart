@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
+import 'package:acb_isbe/page/authors_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
