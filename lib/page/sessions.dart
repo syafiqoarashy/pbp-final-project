@@ -34,7 +34,7 @@ class _SessionsPageState extends State<SessionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sessions"),
+        title: Center(child: Image.asset('graphics/sessions2.png', width:130)),
         backgroundColor: Colors.deepPurple,
       ),
         body: FutureBuilder(
@@ -64,10 +64,11 @@ class _SessionsPageState extends State<SessionsPage> {
                         decoration: BoxDecoration(
                             color:Colors.deepPurple,
                             borderRadius: BorderRadius.circular(15.0),
+                            border: Border.all(color:const Color(0xfffeda07), width:3),
                             boxShadow: const [
                               BoxShadow(
-                                  color: Colors.black,
-                                  blurRadius: 2.0
+                                  color: Colors.yellow,
+                                  blurRadius: 4.0
                               )
                             ]
                         ),
@@ -94,10 +95,12 @@ class _SessionsPageState extends State<SessionsPage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("${snapshot.data![index].title}",
-                                        style: const TextStyle(
-                                            fontSize: 13.8,
-                                            color:Colors.white),),
+                                      Expanded(
+                                        child: Text("${snapshot.data![index].title}",
+                                          style: const TextStyle(
+                                              fontSize: 13.8,
+                                              color:Colors.white),),
+                                      ),
                                       const Icon(
                                         Icons.arrow_forward,
                                           color:Colors.white
@@ -107,7 +110,8 @@ class _SessionsPageState extends State<SessionsPage> {
                                 ),
                               ],
                             ),
-                            tileColor: Colors.deepPurple,
+                            tileColor: const Color(0xff6849ef),
+
                             onTap: () {
                               Navigator.push(
                                 context,

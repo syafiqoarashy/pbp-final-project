@@ -61,7 +61,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - jsonfile/watchlist.json
     - jsonfile/publication.json
     - graphics/
     - jsonfile/tracks.json
