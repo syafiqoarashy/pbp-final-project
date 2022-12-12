@@ -1,6 +1,7 @@
 import 'package:acb_isbe/page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
+import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
 import 'package:acb_isbe/page/home.dart';
 
@@ -32,8 +33,9 @@ class _MainPageState extends State<MainPage> {
   final screens = [
     HomePage(),
     Center(child: Text('EVENTS')),
-    PublicationPage(),
+    PublicationPage(track:'Track'),
     Center(child: Text('AUTHORS')),
+    SessionsPage(),
     LoginPage(),
   ];
 
@@ -88,6 +90,16 @@ class _MainPageState extends State<MainPage> {
                 color: Colors.white
             ),
             label: 'Authors'),
+        NavigationDestination(
+            icon: Icon(
+                Icons.view_module_outlined,
+                color: Colors.white
+            ),
+            selectedIcon: Icon(
+                Icons.view_module_rounded,
+                color: Colors.white
+            ),
+            label: 'Sessions'),
         NavigationDestination(
             icon: Icon(
                 Icons.account_circle_outlined,
