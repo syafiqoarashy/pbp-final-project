@@ -63,6 +63,7 @@ flutter:
   assets:
     - jsonfile/watchlist.json
     - jsonfile/publication.json
+    - jsonfile/testimonials.json
     - graphics/
 
   # To add assets to your application, add an assets section, like this:
