@@ -64,11 +64,17 @@ flutter:
   uses-material-design: true
   assets:
     - jsonfile/publication.json
+<<<<<<< HEAD
     - jsonfile/authors.json
     - assets/images/author-min.png
     - jsonfile/testimonials.json
     - graphics/
     - jsonfile/tracks.json
+=======
+    - jsonfile/speakers.json
+    - jsonfile/speakers_rev.json
+    - graphics/
+>>>>>>> 55e11aa (integrated speakers module)
 
   # To add assets to your application, add an assets section, like this:
   # assets:

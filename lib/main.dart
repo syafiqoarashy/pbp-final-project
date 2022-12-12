@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
+<<<<<<< HEAD
 import 'package:acb_isbe/page/authors_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+=======
+import 'package:acb_isbe/page/speakers.dart';
+>>>>>>> 55e11aa (integrated speakers module)
 
 void main() {
   runApp(const MyApp());
@@ -47,12 +51,17 @@ class _MainPageState extends State<MainPage> {
     Center(child: Text('EVENTS')),
     PublicationPage(track:'Track'),
     Center(child: Text('AUTHORS')),
+<<<<<<< HEAD
     SessionsPage(),
+=======
+    SpeakersPage(),
+>>>>>>> 55e11aa (integrated speakers module)
     LoginPage(),
   ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
+<<<<<<< HEAD
 
     body: screens[index],
     bottomNavigationBar: NavigationBar(
@@ -126,3 +135,43 @@ class _MainPageState extends State<MainPage> {
     ),
   );
 }
+=======
+        body: screens[index],
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: Colors.deepPurple,
+          selectedIndex: index,
+          onDestinationSelected: (index) => setState(() => this.index = index),
+          animationDuration: Duration(seconds: 1),
+          destinations: const [
+            NavigationDestination(
+                icon: Icon(Icons.home_outlined, color: Colors.white),
+                selectedIcon: Icon(Icons.home, color: Colors.white),
+                label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Icons.calendar_month_outlined, color: Colors.white),
+                selectedIcon:
+                    Icon(Icons.calendar_month_rounded, color: Colors.white),
+                label: 'Events'),
+            NavigationDestination(
+                icon: Icon(Icons.article_outlined, color: Colors.white),
+                selectedIcon: Icon(Icons.article_rounded, color: Colors.white),
+                label: 'Publication'),
+            NavigationDestination(
+                icon: Icon(Icons.edit_outlined, color: Colors.white),
+                selectedIcon: Icon(Icons.edit, color: Colors.white),
+                label: 'Authors'),
+            NavigationDestination(
+                icon: Icon(Icons.people_alt_outlined, color: Colors.white),
+                selectedIcon:
+                    Icon(Icons.people_alt_outlined, color: Colors.white),
+                label: 'Speakers'),
+            NavigationDestination(
+                icon: Icon(Icons.account_circle_outlined, color: Colors.white),
+                selectedIcon:
+                    Icon(Icons.account_circle_rounded, color: Colors.white),
+                label: 'Profile'),
+          ],
+        ),
+      );
+}
+>>>>>>> 55e11aa (integrated speakers module)
