@@ -7,6 +7,7 @@ import 'package:acb_isbe/page/events_page.dart';
 import 'package:acb_isbe/page/authors_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:acb_isbe/page/speakers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +50,7 @@ class _MainPageState extends State<MainPage> {
     PublicationPage(track:'Track'),
     Center(child: Text('AUTHORS')),
     SessionsPage(),
+    SpeakersPage(),
     LoginPage(),
   ];
 
@@ -114,6 +116,11 @@ class _MainPageState extends State<MainPage> {
             ),
             label: 'Sessions'),
         NavigationDestination(
+        icon: Icon(Icons.people_alt_outlined, color: Colors.white),
+        selectedIcon:
+        Icon(Icons.people_alt_outlined, color: Colors.white),
+        label: 'Speakers'),
+        NavigationDestination(
             icon: Icon(
                 Icons.account_circle_outlined,
                 color: Colors.white
@@ -127,3 +134,4 @@ class _MainPageState extends State<MainPage> {
     ),
   );
 }
+
