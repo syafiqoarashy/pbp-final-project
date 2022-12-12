@@ -18,7 +18,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Image.asset(
-            'graphics/speakers.png',
+            'graphics/speakers main.png',
             width: 130,
           ),
           backgroundColor: Colors.deepPurple,

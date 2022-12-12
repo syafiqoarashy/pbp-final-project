@@ -70,7 +70,7 @@ class _SpeakersPageState extends State<SpeakersPage> {
                 padding: EdgeInsets.all(10.0),
               ),
               Image.asset(
-                'graphics/speakers.png',
+                'graphics/speakers main.png',
                 width: 130,
               ),
               Padding(
