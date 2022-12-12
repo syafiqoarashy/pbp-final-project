@@ -1,0 +1,277 @@
+[
+    {
+      "model": "events.EventsGeneral",
+      "pk": 1,
+      "fields": {
+          "id": "1",
+          "date": "2019-07-22",
+          "startTime": "13:30",
+          "endTime": "15:30",
+          "program": "Registration and Welcome Cocktails",
+          "place": "Lobby Padang Convention Center",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 2,
+      "fields": {
+          "id": "2",
+          "date": "2019-07-22",
+          "startTime": "17:00",
+          "endTime": "18:00",
+          "program": "Preparation for the West Sumatra Governor Reception Dinner",
+          "place": "Hotel Lobby",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 3,
+      "fields": {
+          "id": "3",
+          "date": "2019-07-22",
+          "startTime": "19:00",
+          "endTime": "21:00",
+          "program": "West Sumatra Governor Dinner Reception (Only For 30 participants)",
+          "place": "Governor House Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 4,
+      "fields": {
+          "id": "4",
+          "date": "2019-07-23",
+          "startTime": "7:30",
+          "endTime": "8:00",
+          "program": "Registration",
+          "place": "Lobby Padang Convention Center",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 5,
+      "fields": {
+          "id": "5",
+          "date": "2019-07-23",
+          "startTime": "8:00",
+          "endTime": "9:30",
+          "program": "Opening Ceremony",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 6,
+      "fields": {
+          "id": "6",
+          "date": "2019-07-23",
+          "startTime": "9:30",
+          "endTime": "9:45",
+          "program": "Photo Session",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 7,
+      "fields": {
+          "id": "7",
+          "date": "2019-07-23",
+          "startTime": "9:45",
+          "endTime": "10:00",
+          "program": "Coffee Break",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 8,
+      "fields": {
+          "id": "8",
+          "date": "2019-07-23",
+          "startTime": "10:00",
+          "endTime": "10:45",
+          "program": "Keynote Lecture 1",
+          "speaker": "1",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 9,
+      "fields": {
+          "id": "9",
+          "date": "2019-07-23",
+          "startTime": "10:45",
+          "endTime": "11:30",
+          "program": "Keynote Lecture 2",
+          "speaker": "2",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 10,
+      "fields": {
+          "id": "10",
+          "date": "2019-07-23",
+          "startTime": "11:30",
+          "endTime": "11:45",
+          "program": "Discussion",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 11,
+      "fields": {
+          "id": "11",
+          "date": "2019-07-23",
+          "startTime": "11:45",
+          "endTime": "11:50",
+          "program": "Closing",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 12,
+      "fields": {
+          "id": "12",
+          "date": "2019-07-23",
+          "startTime": "12:00",
+          "endTime": "13:00",
+          "program": "Lunch",
+          "place": "Hotel Restaurant",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 13,
+      "fields": {
+          "id": "13",
+          "date": "2019-07-23",
+          "startTime": "13:00",
+          "endTime": "18:00",
+          "program": "Parallel Sessions (Each session will be started with a presentation by the Invited Speaker)",
+          "place": "Each Meeting Rooms",
+          "isParallel": "True"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 14,
+      "fields": {
+          "id": "14",
+          "date": "2019-07-23",
+          "startTime": "15:00",
+          "endTime": "15:15",
+          "program": "Coffee Break",
+          "place": "Each Meeting Rooms",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 15,
+      "fields": {
+          "id": "15",
+          "date": "2019-07-23",
+          "startTime": "19:00",
+          "endTime": "21:00",
+          "program": "Gala Dinner",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 16,
+      "fields": {
+          "id": "16",
+          "date": "2019-07-24",
+          "startTime": "8:00",
+          "endTime": "18:00",
+          "program": "Parallel Sessions  (Each session will be started with a presentation by the Invited Speaker)",
+          "place": "Each Meeting Rooms",
+          "isParallel": "True"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 17,
+      "fields": {
+          "id": "17",
+          "date": "2019-07-24",
+          "startTime": "10:00",
+          "endTime": "10:15",
+          "program": "Coffee Break",
+          "place": "Each Meeting Rooms",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 18,
+      "fields": {
+          "id": "18",
+          "date": "2019-07-24",
+          "startTime": "12:00",
+          "endTime": "13:00",
+          "program": "Lunch",
+          "place": "Hotel Restaurant",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 19,
+      "fields": {
+          "id": "19",
+          "date": "2019-07-24",
+          "startTime": "15:00",
+          "endTime": "15:15",
+          "program": "Coffee Break",
+          "place": "Each Meeting Rooms",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 20,
+      "fields": {
+          "id": "20",
+          "date": "2019-07-24",
+          "startTime": "18:00",
+          "endTime": "18:30",
+          "program": "Closing Ceremony",
+          "place": "Ballroom",
+          "isParallel": "False"
+      }
+    },
+    {
+      "model": "events.EventsGeneral",
+      "pk": 21,
+      "fields": {
+          "id": "21",
+          "date": "2019-07-25",
+          "startTime": "6:30",
+          "endTime": "17:00",
+          "program": "Social Tour",
+          "place": "",
+          "isParallel": "False"
+      }
+    }
+  ]

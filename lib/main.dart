@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/login.dart';
+import 'package:acb_isbe/page/events_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class _MainPageState extends State<MainPage> {
   int index = 0;
   final screens = [
     Center(child: Text('HOME')),
-    Center(child: Text('EVENTS')),
+    EventsPage(),
     PublicationPage(),
     Center(child: Text('AUTHORS')),
     LoginPage(),
