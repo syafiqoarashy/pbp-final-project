@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:acb_isbe/page/sessions.dart';
 import 'package:acb_isbe/page/login.dart';
+import 'package:acb_isbe/page/events_page.dart';
 import 'package:acb_isbe/page/authors_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -46,7 +47,7 @@ class _MainPageState extends State<MainPage> {
   int index = 0;
   final screens = [
     HomePage(),
-    Center(child: Text('EVENTS')),
+    EventsPage(),
     PublicationPage(track: 'Track'),
     Center(child: Text('AUTHORS')),
     SessionsPage(),

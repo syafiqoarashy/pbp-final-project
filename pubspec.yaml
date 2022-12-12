@@ -69,6 +69,7 @@ flutter:
     - jsonfile/testimonials.json
     - graphics/
     - jsonfile/tracks.json
+    - jsonfile/eventsgeneral.json
     - jsonfile/speakers.json
     - jsonfile/speakers_rev.json
     - graphics/
