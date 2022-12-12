@@ -5,6 +5,7 @@ import 'package:acb_isbe/page/publication_page.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/main.dart';
 import 'package:acb_isbe/page/login.dart';
+import 'package:acb_isbe/page/testimonials_form.dart';
 import 'package:acb_isbe/model/testimonials.dart';
 import 'package:flutter/services.dart';
 
@@ -226,6 +227,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      floatingActionButton: Padding(
+          padding: const EdgeInsets.only(left: 35),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              textDirection: TextDirection.rtl,
+              children: [
+          FloatingActionButton(
+          backgroundColor: Colors.purple,
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const MyFormPage()),
+        );
+      },
+      tooltip: 'Add Log',
+      child: const Icon(Icons.add),
+    ),
+    ],
+          ),
+    ),
       body: SingleChildScrollView(
 
         child: Column(
