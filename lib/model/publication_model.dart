@@ -10,7 +10,6 @@ String publicationToJson(Publication data) => json.encode(data.toJson());
 
 class Publication {
   Publication({
-    required this.id,
     required this.trackId,
     required this.track,
     required this.title,
@@ -27,7 +26,6 @@ class Publication {
     required this.chair,
   });
 
-  String id;
   String trackId;
   String track;
   String title;
@@ -44,7 +42,6 @@ class Publication {
   String chair;
 
   factory Publication.fromJson(Map<String, dynamic> json) => Publication(
-    id: json["id"],
     trackId: json["trackId"],
     track: json["track"],
     title: json["title"],
@@ -62,7 +59,6 @@ class Publication {
   );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
     "trackId": trackId,
     "track": track,
     "title": title,

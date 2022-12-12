@@ -3,17 +3,21 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:acb_isbe/model/publication_model.dart';
 import 'package:flutter/services.dart';
+import 'package:acb_isbe/main.dart';
+import 'package:http/http.dart' as http;
 
 class PublicationPage extends StatefulWidget {
-  PublicationPage({Key? key, this.track}) : super(key: key);
+  PublicationPage({Key? key, this.track = 'Track', this.isHide = false}) : super(key: key);
 
   String? track;
+  bool isHide;
 
   @override
   State<PublicationPage> createState() => _PublicationPageState();
 }
 
 class _PublicationPageState extends State<PublicationPage> {
+  int index = 2;
   List<Publication> listPublication = [];
   List<Publication> displayList = [];
   List<Publication> titleList = [];
@@ -25,7 +29,18 @@ class _PublicationPageState extends State<PublicationPage> {
   String? test = null;
 
   Future<List<Publication>> fetchPublication(String value) async {
-    // listPublication = [];
+    // var url = Uri.parse('https://acbisbe.up.railway.app/submission/json_flutter/');
+    // var response = await http.get(
+    //   url,
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json",
+    //   },
+    // );
+    //
+    // // decode the response into the json form
+    // var data = jsonDecode(utf8.decode(response.bodyBytes));
+    // -----
 
     final String response = await rootBundle.loadString('jsonfile/publication.json');
     final data = json.decode(response) as List<dynamic>;
@@ -33,6 +48,19 @@ class _PublicationPageState extends State<PublicationPage> {
     if (listPublication.isEmpty){
       for (var d in data) {
         if (d != null) {
+          // print(d['fields']);
+          // print(d['fields']['trackId'].runtimeType);
+          // print(d['fields']['track']);
+          // print(d['fields']['title']);
+          // print(d['fields']['authors_name']);
+          // print(d['fields']['keywords']);
+          // print(d['fields']['abstract']);
+          // print(d['fields']['location']);
+          // print(d['fields']['date']);
+          // print(d['fields']['time']);
+          // print(d['fields']['chair']);
+          // listPublication.add(Publication(trackId: d['fields']['trackId'], track: d['fields']['track'], title: d['fields']['title'], authorsName: d['fields']['authors_name'], keywords: d['fields']['keywords'], publicationAbstract: d['fields']['abstract'], location: d['fields']['location'], date: d['fields']['date'], time: d['fields']['time'], chair: d['fields']['chair']));
+          // print('jancok');
           listPublication.add(Publication.fromJson(d["fields"]));
         }
       }
@@ -211,7 +239,6 @@ class _PublicationPageState extends State<PublicationPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(builder: (context)  => PublicationDetailsPage(
-                                            id: data.id,
                                             trackId: data.trackId,
                                             track: data.track,
                                             title: data.title,
@@ -238,6 +265,75 @@ class _PublicationPageState extends State<PublicationPage> {
           ],
         ),
       ),
+      bottomNavigationBar: widget.isHide ? NavigationBar(
+        backgroundColor: Colors.deepPurple,
+        selectedIndex: index,
+        onDestinationSelected: (index) =>
+            setState(() => Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage(index: index)))),
+        animationDuration: Duration(seconds: 1),
+        destinations: const [
+          NavigationDestination(
+              icon: Icon(
+                  Icons.home_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.home,
+                  color: Colors.white
+              ),
+              label: 'Home'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.calendar_month_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.calendar_month_rounded,
+                  color: Colors.white
+              ),
+              label: 'Events'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.article_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.article_rounded,
+                  color: Colors.white
+              ),
+              label: 'Publication'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.edit_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.edit,
+                  color: Colors.white
+              ),
+              label: 'Authors'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.view_module_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.view_module_rounded,
+                  color: Colors.white
+              ),
+              label: 'Sessions'),
+          NavigationDestination(
+              icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.white
+              ),
+              selectedIcon: Icon(
+                  Icons.account_circle_rounded,
+                  color: Colors.white
+              ),
+              label: 'Profile'),
+        ],
+      ) : null,
     );
   }
 }

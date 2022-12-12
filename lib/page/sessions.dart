@@ -115,7 +115,7 @@ class _SessionsPageState extends State<SessionsPage> {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => PublicationPage(track:snapshot.data![index].symposium))
+                                MaterialPageRoute(builder: (context) => PublicationPage(track:snapshot.data![index].symposium, isHide: true,))
                               );
                             },
                           ),

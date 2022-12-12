@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class PublicationDetailsPage extends StatefulWidget {
   PublicationDetailsPage ({Key? key,
-    required this.id,
     required this.trackId,
     required this.track,
     required this.title,
@@ -18,7 +17,6 @@ class PublicationDetailsPage extends StatefulWidget {
     required this.time,
     required this.chair}) : super(key: key);
 
-  String id;
   String trackId;
   String track;
   String title;
