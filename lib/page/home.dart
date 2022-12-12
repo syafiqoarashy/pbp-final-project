@@ -1,11 +1,62 @@
+import 'dart:ffi';
+import 'package:acb_isbe/page/publication_page.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/main.dart';
+import 'package:acb_isbe/page/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
+}
+
+class Category extends StatelessWidget {
+  final String image;
+  final String title;
+  final double scales;
+  final int decide;
+  const Category({Key? key, required this.image, required this.title, required this.scales, required this.decide}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Routing the menu to the form page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => (decide==1) ? PublicationPage():(decide==2)?LoginPage():PublicationPage()),
+        );
+      },
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Container(
+            width: 80,
+            height: 70,
+            child: Column(
+              children: [
+                SizedBox(
+                  child: Image.asset(
+                    image,
+                    scale: scales,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _HomePageState extends State<HomePage> {
@@ -76,6 +127,19 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             UpperBar(),
+            SizedBox(height: 10),
+            Padding(
+                padding: EdgeInsets.all(15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Category(image: 'graphics/event.png', title: 'Events', scales: 1.5, decide: 1,),
+                SizedBox(width: 5),
+                Category(image: 'graphics/speakers.png', title: 'Speakers', scales: 1.5, decide: 2,),
+                SizedBox(width: 5),
+                Category(image: 'graphics/sessions.png', title: 'Sessions', scales: 1.6, decide: 1,),
+              ],
+            ),)
           ],
         ),
       )
