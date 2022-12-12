@@ -11,7 +11,6 @@ String publicationToJson(Publication data) => json.encode(data.toJson());
 
 class Publication {
   Publication({
-    required this.id,
     required this.trackId,
     required this.track,
     required this.title,
@@ -28,7 +27,6 @@ class Publication {
     required this.chair,
   });
 
-  String id;
   String trackId;
   String track;
   String title;
@@ -45,39 +43,36 @@ class Publication {
   String chair;
 
   factory Publication.fromJson(Map<String, dynamic> json) => Publication(
-        id: json["id"],
-        trackId: json["trackId"],
-        track: json["track"],
-        title: json["title"],
-        authorsName: json["authors_name"],
-        submitted: DateTime.parse(json["submitted"]),
-        lastUpdated: DateTime.parse(json["lastUpdated"]),
-        keywords: json["keywords"],
-        decision: json["decision"],
-        reviewsSent: json["reviewsSent"],
-        publicationAbstract: json["abstract"],
-        location: json["location"],
-        date: DateTime.parse(json["date"]),
-        time: json["time"],
-        chair: json["chair"],
-      );
+    trackId: json["trackId"],
+    track: json["track"],
+    title: json["title"],
+    authorsName: json["authors_name"],
+    submitted: DateTime.parse(json["submitted"]),
+    lastUpdated: DateTime.parse(json["lastUpdated"]),
+    keywords: json["keywords"],
+    decision: json["decision"],
+    reviewsSent: json["reviewsSent"],
+    publicationAbstract: json["abstract"],
+    location: json["location"],
+    date: DateTime.parse(json["date"]),
+    time: json["time"],
+    chair: json["chair"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "trackId": trackId,
-        "track": track,
-        "title": title,
-        "authors_name": authorsName,
-        "submitted": submitted?.toIso8601String(),
-        "lastUpdated": lastUpdated?.toIso8601String(),
-        "keywords": keywords,
-        "decision": decision,
-        "reviewsSent": reviewsSent,
-        "abstract": publicationAbstract,
-        "location": location,
-        "date":
-            "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
-        "time": time,
-        "chair": chair,
-      };
+    "trackId": trackId,
+    "track": track,
+    "title": title,
+    "authors_name": authorsName,
+    "submitted": submitted?.toIso8601String(),
+    "lastUpdated": lastUpdated?.toIso8601String(),
+    "keywords": keywords,
+    "decision": decision,
+    "reviewsSent": reviewsSent,
+    "abstract": publicationAbstract,
+    "location": location,
+    "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
+    "time": time,
+    "chair": chair,
+  };
 }

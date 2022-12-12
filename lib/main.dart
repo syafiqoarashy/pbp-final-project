@@ -39,15 +39,26 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  MainPage({Key? key, this.index = 0}) : super(key: key);
+
+  int index;
+
   @override
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
   int index = 0;
+
+  void getInitiate() {
+    if(widget.index != 0) {
+      index = widget.index;
+    }
+  }
+
   final screens = [
     HomePage(),
-    EventsPage(),
+    Center(child: Text('EVENTS')),
     PublicationPage(track: 'Track'),
     Center(child: Text('AUTHORS')),
     SessionsPage(),
@@ -56,9 +67,12 @@ class _MainPageState extends State<MainPage> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold
-      (
+  void initState()
+  {
+    super.initState();
+    getInitiate();//call it over here
+  }
+  Widget build(BuildContext context) => Scaffold(
 
       body: screens[index],
       bottomNavigationBar: NavigationBar(
@@ -137,4 +151,4 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
-}
+
