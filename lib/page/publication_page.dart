@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:acb_isbe/model/publication_model.dart';
 import 'package:acb_isbe/main.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 
 class PublicationPage extends StatefulWidget {
   PublicationPage({Key? key, this.track = 'Track', this.isHide = false}) : super(key: key);
@@ -58,6 +59,7 @@ class _PublicationPageState extends State<PublicationPage> {
     }
 
     test = '${widget.track}';
+    searchKeyword = value;
 
     setState(() {
       if(selectedTrack == 'Track') {
