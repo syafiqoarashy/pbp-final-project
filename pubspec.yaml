@@ -73,6 +73,7 @@ flutter:
     - jsonfile/speakers.json
     - jsonfile/speakers_rev.json
     - graphics/
+    - jsonfile/eventsparallel.json
 
 
   # To add assets to your application, add an assets section, like this:

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:acb_isbe/model/events_general_model.dart';
+import 'package:acb_isbe/model/events_parallel_model.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+
+import 'events_parallel_page.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({Key? key}) : super(key: key);
@@ -12,20 +16,32 @@ class EventsPage extends StatefulWidget {
 
 class _EventsPage extends State<EventsPage> {
   List<EventsGeneral> listEventsGeneral = [];
+  List<EventsGeneral> listEventsFiltered = [];
+  String? test;
+  String? test2;
+  String selectedDate = "2019-07-22";
+  List<String> listDates = ["2019-07-22", "2019-07-23", "2019-07-24", "2019-07-25"];
 
   Future<List<EventsGeneral>> fetchEventsGeneral() async {
+    
     listEventsGeneral = [];
 
     final String response = await rootBundle.loadString('jsonfile/eventsgeneral.json');
-    final data = json.decode(response) as List<dynamic>;
+    final data = await json.decode(response);
 
     for (var d in data) {
       if (d != null) {
         listEventsGeneral.add(EventsGeneral.fromJson(d["fields"]));
       }
     }
-    return listEventsGeneral;
+
+    setState(() {
+      listEventsFiltered = listEventsGeneral.where((element) => element.date.toLowerCase().contains(selectedDate.toLowerCase())).toList();
+    });
+
+    return listEventsFiltered;
   }
+
   
   displaySpeakerName(String? speakerName) {
     if (speakerName != null) {
@@ -48,57 +64,79 @@ class _EventsPage extends State<EventsPage> {
           children: [
             Padding(
               padding: EdgeInsets.all(20.0),
-              child: FutureBuilder(
-                future: fetchEventsGeneral(),
-                builder: (context, AsyncSnapshot snapshot) {
-                  if (snapshot.data == null) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else {
-                    if (!snapshot.hasData) {
-                      return Column(
-                        children: const [
-                          Text("No events to display", style: TextStyle(color: Colors.red, fontSize: 20),),
-                          SizedBox(height: 8),
-                        ],
-                      );
-                    } else {
-                      return Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: snapshot.data!.length,
-                              itemBuilder: (_, index) => Center(
-                                child: Card(
-                                  child: Column(
-                                    children: [
-                                      ListTile(
-                                        title: Text("${snapshot.data![index].program}", style:TextStyle(color: Colors.white, fontSize: 20),),
-                                        tileColor: Colors.deepPurple,
-                                        subtitle: RichText(
-                                          text: TextSpan(
-                                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
-                                            children: <TextSpan>[
-                                              TextSpan(text: "${snapshot.data![index].startTime} - ${snapshot.data![index].endTime}   "),
-                                              TextSpan(text: "${snapshot.data![index].place}   "),
-                                              TextSpan(text: displaySpeakerName(snapshot.data![index].speaker))
-                                            ]
-                                          )
-                                        )
-                                      ),
-                                    ]
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: DropdownButton(
+                      value: selectedDate,
+                      items: listDates.map((String items) {
+                        return DropdownMenuItem(
+                          value: items,
+                          child: Text(items),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedDate = newValue!;
+                        });
+                      }
+                    )
+                  )
+                ]
+              ),
+            ),
+            FutureBuilder(
+              future: fetchEventsGeneral(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.data == null) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: listEventsFiltered.map((data) {
+                      return Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey.shade300),
+                          borderRadius: BorderRadius.circular(12)
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            title: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("${data.program}", style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,),),
+                                SizedBox(height: 10.0),
+                                Text("${data.startTime} - ${data.endTime}", style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold,),),
+                                SizedBox(height: 10.0),
+                                Text("${data.place}", style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold,),),
+                                SizedBox(height: 10.0),
+                                Text(displaySpeakerName(data.speaker), style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold,),),
+                                if (data.isParallel == "True")
+                                  TextButton(
+                                    child: Text("View Parallel Sessions"),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => EventsParallelPage())
+                                      );
+                                    }
                                   )
-                                )
-                              )
+                              ]
                             )
                           )
-                        ]
+                        )
                       );
-                    }
-                  }
+                    }).toList()
+                  );
                 }
-              )
-            ),
+              }
+            )
           ]
         )
       )
