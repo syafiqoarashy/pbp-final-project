@@ -2,7 +2,6 @@ import 'package:acb_isbe/page/publication_details.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:acb_isbe/model/publication_model.dart';
-import 'package:flutter/services.dart';
 import 'package:acb_isbe/main.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,41 +25,33 @@ class _PublicationPageState extends State<PublicationPage> {
   String searchKeyword = '';
   String? selectedTrack = 'Track';
   List<String> listTracks = ['Track', 'SCE', 'IT', 'AME', 'BBE', 'CPE', 'SBCC', 'ECE', 'MME',  'IE', 'ISBE'];
-  String? test = null;
+  String? test;
 
   Future<List<Publication>> fetchPublication(String value) async {
-    // var url = Uri.parse('https://acbisbe.up.railway.app/submission/json_flutter/');
-    // var response = await http.get(
-    //   url,
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json",
-    //   },
-    // );
-    //
-    // // decode the response into the json form
-    // var data = jsonDecode(utf8.decode(response.bodyBytes));
-    // -----
+    // following code is to fetch json from web server
+    // code starts here ----------
+    var url = Uri.parse('https://acbisbe.up.railway.app/submission/json_flutter/');
+    var response = await http.get(
+      url,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    );
 
-    final String response = await rootBundle.loadString('jsonfile/publication.json');
-    final data = json.decode(response) as List<dynamic>;
+    // decode the response into the json form
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
+    // code ends here ----------
+
+    // following code is to fetch json from local, uncomment to use the code
+    // code starts here ----------
+    // final String response = await rootBundle.loadString('jsonfile/publication.json');
+    // final data = json.decode(response) as List<dynamic>;
+    // code ends here ----------
 
     if (listPublication.isEmpty){
       for (var d in data) {
         if (d != null) {
-          // print(d['fields']);
-          // print(d['fields']['trackId'].runtimeType);
-          // print(d['fields']['track']);
-          // print(d['fields']['title']);
-          // print(d['fields']['authors_name']);
-          // print(d['fields']['keywords']);
-          // print(d['fields']['abstract']);
-          // print(d['fields']['location']);
-          // print(d['fields']['date']);
-          // print(d['fields']['time']);
-          // print(d['fields']['chair']);
-          // listPublication.add(Publication(trackId: d['fields']['trackId'], track: d['fields']['track'], title: d['fields']['title'], authorsName: d['fields']['authors_name'], keywords: d['fields']['keywords'], publicationAbstract: d['fields']['abstract'], location: d['fields']['location'], date: d['fields']['date'], time: d['fields']['time'], chair: d['fields']['chair']));
-          // print('jancok');
           listPublication.add(Publication.fromJson(d["fields"]));
         }
       }
@@ -76,17 +67,17 @@ class _PublicationPageState extends State<PublicationPage> {
           selectedTrack = test;
         }
         titleList = listPublication.where((element) =>
-            element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+            element.title.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = listPublication.where((element) =>
-            element.authorsName!.toLowerCase().contains(value.toLowerCase())).toList();
+            element.authorsName.toLowerCase().contains(value.toLowerCase())).toList();
         displayList = titleList + authorList;
       } else {
         trackList = listPublication.where((element) =>
-            element.track!.toLowerCase().contains(selectedTrack!.toLowerCase())).toList();
+            element.track.toLowerCase().contains(selectedTrack!.toLowerCase())).toList();
         titleList = trackList.where((element) =>
-            element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+            element.title.toLowerCase().contains(value.toLowerCase())).toList();
         authorList = trackList.where((element) =>
-            element.authorsName!.toLowerCase().contains(value.toLowerCase())).toList();
+            element.authorsName.toLowerCase().contains(value.toLowerCase())).toList();
         displayList = titleList + authorList;
       }
     });
@@ -107,7 +98,7 @@ class _PublicationPageState extends State<PublicationPage> {
           children: [
             // SizedBox(height: 30),
             Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -116,7 +107,7 @@ class _PublicationPageState extends State<PublicationPage> {
                     child: TextField(
                       onChanged: (value) => fetchPublication(value),
                       cursorColor: Colors.deepPurple,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(
@@ -127,13 +118,13 @@ class _PublicationPageState extends State<PublicationPage> {
                             borderSide: BorderSide.none,
                           ),
                           hintText: 'Search for title, author(s)',
-                          prefixIcon: Icon(Icons.search, color: Colors.deepPurple,)
+                          prefixIcon: const Icon(Icons.search, color: Colors.deepPurple,)
                       ),
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 7, vertical: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 0),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(7),
                         border: Border.all(
@@ -187,14 +178,14 @@ class _PublicationPageState extends State<PublicationPage> {
                                     crossAxisAlignment:  CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                          "${data.title}",
+                                          data.title,
                                           style: const TextStyle(
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black
                                           )
                                       ),
-                                      SizedBox(height: 3),
+                                      const SizedBox(height: 3),
                                       Text(
                                           "Last Updated: ${data.lastUpdated}",
                                           style: TextStyle(
@@ -202,9 +193,9 @@ class _PublicationPageState extends State<PublicationPage> {
                                               color: Colors.grey.shade600
                                           )
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Text(
-                                        "${data.authorsName}",
+                                        data.authorsName,
                                         style: const TextStyle(
                                           fontSize: 12.0,
                                         ),
@@ -217,7 +208,7 @@ class _PublicationPageState extends State<PublicationPage> {
                                             color: Colors.grey.shade600
                                         ),
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Container(
                                         padding: const EdgeInsets.symmetric(vertical: 3.0, horizontal: 15.0),
                                         decoration: BoxDecoration(
@@ -225,7 +216,7 @@ class _PublicationPageState extends State<PublicationPage> {
                                           borderRadius: BorderRadius.circular(30),
                                         ),
                                         child: Text(
-                                          "${data.track}",
+                                          data.track,
                                           style: TextStyle(
                                               fontSize: 12.0,
                                               color: Colors.grey.shade800,
@@ -247,6 +238,7 @@ class _PublicationPageState extends State<PublicationPage> {
                                             lastUpdated: data.lastUpdated,
                                             keywords: data.keywords,
                                             decision: data.decision,
+                                            notified: data.notified,
                                             reviewsSent: data.reviewsSent,
                                             publicationAbstract: data.publicationAbstract,
                                             location: data.location,
@@ -265,73 +257,60 @@ class _PublicationPageState extends State<PublicationPage> {
           ],
         ),
       ),
-      bottomNavigationBar: widget.isHide ? NavigationBar(
+      bottomNavigationBar: widget.isHide ? BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.deepPurple,
-        selectedIndex: index,
-        onDestinationSelected: (index) =>
-            setState(() => Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage(index: index)))),
-        animationDuration: Duration(seconds: 1),
-        destinations: const [
-          NavigationDestination(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(0.7),
+        currentIndex: index,
+        onTap: (index) =>
+            setState(() => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainPage(index: index)))),
+        items: const [
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.home_outlined,
-                  color: Colors.white
+                  Icons.home_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.home,
-                  color: Colors.white
+              activeIcon: Icon(
+                Icons.home,
               ),
               label: 'Home'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.calendar_month_outlined,
-                  color: Colors.white
+                  Icons.calendar_month_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.calendar_month_rounded,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.calendar_month_rounded
               ),
               label: 'Events'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.article_outlined,
-                  color: Colors.white
+                  Icons.article_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.article_rounded,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.article_rounded
               ),
-              label: 'Publication'),
-          NavigationDestination(
+              label: 'Papers'),
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.edit_outlined,
-                  color: Colors.white
+                  Icons.edit_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.edit,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.edit
               ),
               label: 'Authors'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.view_module_outlined,
-                  color: Colors.white
+                Icons.view_module_outlined,
               ),
-              selectedIcon: Icon(
-                  Icons.view_module_rounded,
-                  color: Colors.white
+              activeIcon: Icon(
+                Icons.view_module_rounded,
               ),
               label: 'Sessions'),
-          NavigationDestination(
-              icon: Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.white
-              ),
-              selectedIcon: Icon(
-                  Icons.account_circle_rounded,
-                  color: Colors.white
-              ),
-              label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.people_alt_outlined),
+              activeIcon:
+              Icon(Icons.people_alt_outlined),
+              label: 'Speakers'),
         ],
       ) : null,
     );
