@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
 
   final screens = [
     HomePage(),
-    Center(child: Text('EVENTS')),
+    EventsPage(),
     PublicationPage(track: 'Track'),
     MyAuthorsPage(),
     SessionsPage(),

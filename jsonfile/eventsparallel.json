@@ -7,8 +7,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "2",
-        "speaker": "9",
+        "program": "Infrastructure and Transport",
+        "speaker": "Prof. Alexander Paz",
         "place": "OMBILIN 1"
       }
     },
@@ -20,8 +20,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "3",
-        "speaker": "6",
+        "program": "Advances in Mechanical Engineering",
+        "speaker": "Prof. Jerome Charmet",
         "place": "ANAI 1-2"
       }
     },
@@ -33,7 +33,7 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "4",
+        "program": "Biotechnology and Bioprocess Engineering",
         "place": "SEMPUR, SINAMAR"
       }
     },
@@ -45,8 +45,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "5",
-        "speaker": "5",
+        "program": "Chemical Process and Engineering",
+        "speaker": "Prof. Masato Tominaga",
         "place": "OMBILIN 2-3"
       }
     },
@@ -58,8 +58,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "6",
-        "speaker": "8",
+        "program": "Sustainable Building, City, and Community",
+        "speaker": "Prof. Lisa Scharoun",
         "place": "KUANTAN 1-2"
       }
     },
@@ -71,8 +71,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "7",
-        "speaker": "7",
+        "program": "Electrical and Computer Engineering",
+        "speaker": "Prof. Shuo-Yan Chou",
         "place": "ARAI"
       }
     },
@@ -84,8 +84,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "8",
-        "speaker": "3",
+        "program": "Metallurgy and Materials Engineering",
+        "speaker": "Prof. Eung Ryul Baek",
         "place": "TARUSAN 1-2"
       }
     },
@@ -97,7 +97,7 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "9",
+        "program": "Industrial Engineering",
         "place": "KUANTAN 3"
       }
     },
@@ -109,8 +109,8 @@
         "date": "2019-07-23",
         "startTime": "13:00",
         "endTime": "18:00",
-        "program": "10",
-        "speaker": "13",
+        "program": "Biomedical Engineering",
+        "speaker": "Prof. Muhammad Hussain Ismail",
         "place": "SEMPUR, SINAMAR"
       }
     },
@@ -122,7 +122,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "1",
+        "program": "Sustainable and Clean Energy",
         "place": "OMBILIN 1"
       }
     },
@@ -134,8 +134,8 @@
         "date": "2019-07-24",
         "startTime": "10:15",
         "endTime": "12:00",
-        "program": "2",
-        "speaker": "10",
+        "program": "Infrastructure and Transport",
+        "speaker": "Prof. Ruth Steiner",
         "place": "KUANTAN 1-2"
       }
     },
@@ -147,7 +147,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "3",
+        "program": "Advances in Mechanical Engineering",
         "place": "ANAI 1-2, KUANTAN 3"
       }
     },
@@ -159,7 +159,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "4",
+        "program": "Biotechnology and Bioprocess Engineering",
         "place": "SEMPUR"
       }
     },
@@ -171,7 +171,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "5",
+        "program": "Chemical Process and Engineering",
         "place": "OMBILIN 2-3"
       }
     },
@@ -183,8 +183,8 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "6",
-        "speaker": "10",
+        "program": "Sustainable Building, City, and Community",
+        "speaker": "Prof. Ruth Steiner",
         "place": "KUANTAN 1-2"
       }
     },
@@ -196,7 +196,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "7",
+        "program": "Electrical and Computer Engineering",
         "place": "ARAI"
       }
     },
@@ -208,7 +208,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "8",
+        "program": "Metallurgy and Materials Engineering",
         "place": "TARUSAN 1-2"
       }
     },
@@ -220,7 +220,7 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "14:00",
-        "program": "9",
+        "program": "Industrial Engineering",
         "place": "KUANTAN 3"
       }
     },
@@ -232,8 +232,8 @@
         "date": "2019-07-24",
         "startTime": "8:00",
         "endTime": "18:00",
-        "program": "10",
-        "speaker": "12",
+        "program": "Biomedical Engineering",
+        "speaker": "Prof. Dr.-Ing Azhar Zam",
         "place": "SEMPUR, SINAMAR, BATANDANG"
       }
     }

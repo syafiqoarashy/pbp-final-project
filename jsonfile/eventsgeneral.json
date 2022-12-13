@@ -99,7 +99,7 @@
           "startTime": "10:00",
           "endTime": "10:45",
           "program": "Keynote Lecture 1",
-          "speaker": "1",
+          "speaker": "Prof. Bondan Tiara Sofyan",
           "place": "Ballroom",
           "isParallel": "False"
       }
@@ -113,7 +113,7 @@
           "startTime": "10:45",
           "endTime": "11:30",
           "program": "Keynote Lecture 2",
-          "speaker": "2",
+          "speaker": "Prof. Aya Hagishima",
           "place": "Ballroom",
           "isParallel": "False"
       }
