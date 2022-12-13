@@ -113,8 +113,7 @@ class _SessionsPageState extends State<SessionsPage> {
                             tileColor: const Color(0xff6849ef),
 
                             onTap: () {
-                              Navigator.push(
-                                context,
+                              Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(builder: (context) => PublicationPage(track:snapshot.data![index].symposium, isHide: true,))
                               );
                             },

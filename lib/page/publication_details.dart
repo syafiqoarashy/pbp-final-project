@@ -10,6 +10,7 @@ class PublicationDetailsPage extends StatefulWidget {
     this.lastUpdated,
     required this.keywords,
     this.decision,
+    this.notified,
     this.reviewsSent,
     required this.publicationAbstract,
     required this.location,
@@ -25,7 +26,8 @@ class PublicationDetailsPage extends StatefulWidget {
   DateTime? lastUpdated;
   String keywords;
   String? decision;
-  String? reviewsSent;
+  dynamic notified;
+  bool? reviewsSent;
   String publicationAbstract;
   String location;
   DateTime date;
@@ -95,16 +97,16 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
         child: ListView(
             children:[
               Text(
-                  '${widget.title}',
+                  widget.title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize:20,
                     fontWeight: FontWeight.w700,
                   )
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
-                  getTrackName('${widget.track}'),
+                  getTrackName(widget.track),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize:14,
@@ -118,13 +120,13 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                   )
               ),
               Text(
-                  '${widget.authorsName}',
+                  widget.authorsName,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize:14,
                   )
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Divider(color: Colors.grey.shade400,),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -137,27 +139,27 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                 ),
               ),
               Divider(color: Colors.grey.shade400,),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
                       color: Colors.deepPurple,
                       borderRadius: BorderRadius.circular(12)
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                           'Conference Information',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize:18,
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
                           )
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(
                           'Location: ${widget.location}',
                           textAlign: TextAlign.center,
@@ -194,7 +196,7 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               const Text(
                 'Abstract',
                 textAlign: TextAlign.left,
@@ -203,15 +205,15 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
-                  '${widget.publicationAbstract}',
+                  widget.publicationAbstract,
                   textAlign: TextAlign.justify,
                   style: const TextStyle(
                     fontSize:14,
                   )
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                   'Keywords',
                   textAlign: TextAlign.left,
@@ -220,9 +222,9 @@ class _DetailsPageState extends State<PublicationDetailsPage> {
                     fontWeight: FontWeight.w700,
                   )
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
-                  '${widget.keywords}',
+                  widget.keywords,
                   textAlign: TextAlign.justify,
                   style: const TextStyle(
                     fontSize:14,

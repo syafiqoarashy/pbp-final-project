@@ -19,6 +19,7 @@ class Publication {
     this.lastUpdated,
     required this.keywords,
     this.decision,
+    this.notified,
     this.reviewsSent,
     required this.publicationAbstract,
     required this.location,
@@ -35,7 +36,8 @@ class Publication {
   DateTime? lastUpdated;
   String keywords;
   String? decision;
-  String? reviewsSent;
+  dynamic notified;
+  bool? reviewsSent;
   String publicationAbstract;
   String location;
   DateTime date;
@@ -51,6 +53,7 @@ class Publication {
     lastUpdated: DateTime.parse(json["lastUpdated"]),
     keywords: json["keywords"],
     decision: json["decision"],
+    notified: json["notified"],
     reviewsSent: json["reviewsSent"],
     publicationAbstract: json["abstract"],
     location: json["location"],
@@ -68,6 +71,7 @@ class Publication {
     "lastUpdated": lastUpdated?.toIso8601String(),
     "keywords": keywords,
     "decision": decision,
+    "notified": notified,
     "reviewsSent": reviewsSent,
     "abstract": publicationAbstract,
     "location": location,

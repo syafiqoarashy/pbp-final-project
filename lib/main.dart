@@ -60,10 +60,9 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     Center(child: Text('EVENTS')),
     PublicationPage(track: 'Track'),
-    Center(child: Text('AUTHORS')),
+    MyAuthorsPage(),
     SessionsPage(),
     SpeakersPage(),
-    LoginPage(),
   ];
 
   @override
@@ -75,78 +74,60 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
 
       body: screens[index],
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.deepPurple,
-        selectedIndex: index,
-        onDestinationSelected: (index) =>
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(0.7),
+        currentIndex: index,
+        onTap: (index) =>
             setState(() => this.index = index),
-        animationDuration: Duration(seconds: 1),
-        destinations: const [
-          NavigationDestination(
+        items: const [
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.home_outlined,
-                  color: Colors.white
+                  Icons.home_outlined
               ),
-              selectedIcon: Icon(
+              activeIcon: Icon(
                   Icons.home,
-                  color: Colors.white
               ),
               label: 'Home'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.calendar_month_outlined,
-                  color: Colors.white
+                  Icons.calendar_month_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.calendar_month_rounded,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.calendar_month_rounded
               ),
               label: 'Events'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.article_outlined,
-                  color: Colors.white
+                  Icons.article_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.article_rounded,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.article_rounded
               ),
-              label: 'Publication'),
-          NavigationDestination(
+              label: 'Papers'),
+          BottomNavigationBarItem(
               icon: Icon(
-                  Icons.edit_outlined,
-                  color: Colors.white
+                  Icons.edit_outlined
               ),
-              selectedIcon: Icon(
-                  Icons.edit,
-                  color: Colors.white
+              activeIcon: Icon(
+                  Icons.edit
               ),
               label: 'Authors'),
-          NavigationDestination(
+          BottomNavigationBarItem(
               icon: Icon(
                   Icons.view_module_outlined,
-                  color: Colors.white
               ),
-              selectedIcon: Icon(
+              activeIcon: Icon(
                   Icons.view_module_rounded,
-                  color: Colors.white
               ),
               label: 'Sessions'),
-          NavigationDestination(
-              icon: Icon(Icons.people_alt_outlined, color: Colors.white),
-              selectedIcon:
-              Icon(Icons.people_alt_outlined, color: Colors.white),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.people_alt_outlined),
+              activeIcon:
+              Icon(Icons.people_alt_outlined),
               label: 'Speakers'),
-          NavigationDestination(
-              icon: Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.white
-              ),
-              selectedIcon: Icon(
-                  Icons.account_circle_rounded,
-                  color: Colors.white
-              ),
-              label: 'Profile'),
         ],
       ),
     );
