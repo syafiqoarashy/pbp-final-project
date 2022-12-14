@@ -175,7 +175,7 @@ class Category extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => (decide==1) ? PublicationPage():(decide==2)?LoginPage():PublicationPage()),
+              builder: (context) => (decide==1) ? EventsPage():(decide==2)?SpeakersPage():SessionsPage()),
         );
       },
       child: Card(
