@@ -58,6 +58,16 @@ class _SpeakersPageState extends State<SpeakersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: Image.asset(
+              'graphics/speakers main.png',
+              width: 130,
+            ),
+          ),
+          backgroundColor: Colors.deepPurple,
+          elevation: 0,
+        ),
         body: SafeArea(
             child: SingleChildScrollView(
                 child: Column(
@@ -66,16 +76,6 @@ class _SpeakersPageState extends State<SpeakersPage> {
           Container(
             decoration: BoxDecoration(color: Colors.deepPurple),
             child: Column(children: [
-              Padding(
-                padding: EdgeInsets.all(10.0),
-              ),
-              Image.asset(
-                'graphics/speakers main.png',
-                width: 130,
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-              ),
               SizedBox(
                   width: 332,
                   height: 35,
