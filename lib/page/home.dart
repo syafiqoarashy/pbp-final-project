@@ -230,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(width: 5),
                   Category(image: 'graphics/speakers.png', title: 'Speakers', scales: 1.5, decide: 2,),
                   SizedBox(width: 5),
-                  Category(image: 'graphics/sessions.png', title: 'Sessions', scales: 1.6, decide: 1,),
+                  Category(image: 'graphics/sessions.png', title: 'Sessions', scales: 1.6, decide: 3,),
                 ],
               ),
             ),
