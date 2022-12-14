@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:acb_isbe/page/events_page.dart';
+import 'package:acb_isbe/page/sessions.dart';
+import 'package:acb_isbe/page/speakers.dart';
 import 'package:acb_isbe/page/publication_page.dart';
 import 'package:flutter/material.dart';
 import 'package:acb_isbe/main.dart';
